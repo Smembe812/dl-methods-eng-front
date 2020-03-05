@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Header from "@editorjs/header"
 import Embed from  '@editorjs/embed'
 import Table from  '@editorjs/table'
@@ -38,67 +38,48 @@ const tools = {
 };
 
 
-function TextEditor(){
+function TextEditor(props){
   console.log(EditorJS)
-  const editor = new EditorJS({ 
+//   let [editor, initEditor] = useState(null)
+  const init = new EditorJS({ 
     /** 
      * Id of Element that should contain the Editor 
      */ 
     holderId: 'codex-editor', 
-
+    onChange: (data) => console.log(data),
+    data: {},
     tools: { ...tools}, 
-
-    data: {
-      "time": 1550476186479,
-      "blocks": [
-         {
-            "type": "header",
-            "data": {
-               "text": "Editor.js",
-               "level": 2
-            }
-         },
-         {
-            "type": "paragraph",
-            "data": {
-               "text": "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text. Source code of the page contains the example of connection and configuration."
-            }
-         },
-         {
-            "type": "header",
-            "data": {
-               "text": "Key features",
-               "level": 3
-            }
-         },
-         {
-            "type": "list",
-            "data": {
-               "style": "unordered",
-               "items": [
-                  "It is a block-styled editor",
-                  "It returns clean data output in JSON",
-                  "Designed to be extendable and pluggable with a simple API"
-               ]
-            }
-         },
-         {
-            "type": "header",
-            "data": {
-               "text": "What does it mean «block-styled editor»",
-               "level": 3
-            }
-         },
-         {
-            "type": "paragraph",
-            "data": {
-               "text": "Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core."
-            }
-         }
-      ],
-      "version": "2.8.1"
-   }
   })
+
+  console.log(init)
+  
+//   useEffect(() => {
+
+//      initEditor(init)
+//   })
+
+
+//   const handleChange = () => {
+//    const { onChange, onData } = props;
+
+//    if (onChange && typeof onChange === 'function') {
+//      onChange();
+//    }
+
+//    if (onData && typeof onData === 'function') {
+//       eventEmitter(onData);
+//    }
+//   }
+
+  const eventEmitter = async (editor) => {
+     
+   try {
+      const saved = await editor.save()
+      console.log(saved)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div id="codex-editor">

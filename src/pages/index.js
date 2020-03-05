@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Header from '../components/header'
 import TableOfContents from '../components/TableOfContents'
 import TechniqieBody from '../components/TechniqueBody'
@@ -34,6 +34,17 @@ const useStyles = makeStyles(theme => ({
 
 const TechniquesPage = () => {
   const classes = useStyles();
+  const [inputData, saveInputData] = useState({})
+
+  const handleSave = async (editor) =>{
+    try {
+      const saved = await editor.save()
+      console.log(saved)
+      saveInputData(saved)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   
   return (
   
@@ -71,7 +82,11 @@ const TechniquesPage = () => {
         <div className="dl-container">
             <TechniqieBody/>
             <div id="editorjs-container"/>
-            <TextEditor/>
+            <TextEditor
+              data={inputData}
+              onData={(data) => console.log(data)}
+              onChance={() => console.log('Something is changing!!')}
+              />
             {/* <Editor
               autofocus
               holder="editorjs-container"
