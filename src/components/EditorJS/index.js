@@ -40,24 +40,23 @@ const tools = {
 
 function TextEditor(props){
   console.log(EditorJS)
-//   let [editor, initEditor] = useState(null)
-  const init = new EditorJS({ 
-    /** 
-     * Id of Element that should contain the Editor 
-     */ 
-    holderId: 'codex-editor', 
-    onChange: (data) => console.log(data),
-    data: {},
-    tools: { ...tools}, 
-  })
+  let editor;
 
-  console.log(init)
-  
-//   useEffect(() => {
 
-//      initEditor(init)
-//   })
+   useEffect(() => {
+         initEditor()
+  }, [])
 
+
+  async function initEditor() {
+
+   editor = new EditorJS({ 
+      holderId: 'codex-editor', 
+      onChange: changeEmitter,
+      data: {},
+      tools: { ...tools}
+   })
+ }
 
 //   const handleChange = () => {
 //    const { onChange, onData } = props;
@@ -71,10 +70,12 @@ function TextEditor(props){
 //    }
 //   }
 
-  const eventEmitter = async (editor) => {
-     
+  const changeEmitter = async () => {
+     const {onChange} = props
+     console.log(editor)
    try {
       const saved = await editor.save()
+      onChange(saved)
       console.log(saved)
     } catch (error) {
       console.log(error)

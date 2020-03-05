@@ -85,7 +85,7 @@ const TechniquesPage = () => {
             <TextEditor
               data={inputData}
               onData={(data) => console.log(data)}
-              onChance={() => console.log('Something is changing!!')}
+              onChange={(e) => console.log('Something is changing!!', e)}
               />
             {/* <Editor
               autofocus
