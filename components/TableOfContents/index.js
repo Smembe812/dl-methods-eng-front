@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TableOfContents() {
+function TableOfContents() {
   const classes = useStyles();
 
   return (
@@ -33,3 +33,5 @@ export default function TableOfContents() {
       </MenuList>
   );
 }
+
+export default TableOfContents

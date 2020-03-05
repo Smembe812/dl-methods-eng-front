@@ -928,6 +928,18 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@ckeditor/ckeditor5-build-classic@^17.0.0":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-17.0.0.tgz#e048b70a3112cd56a53169016c6a70cd17488280"
+  integrity sha512-LBJk8jWKONs3BZSjgNbZbDEEgC2AD1z53sUfrduEkV5TCdYOlf+Ys0qF23MnNrfu1lwtVd6LfunS3AKymHQIiw==
+
+"@ckeditor/ckeditor5-react@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-react/-/ckeditor5-react-2.1.0.tgz#f612546a5a328899a436d71b72ffd632600049e8"
+  integrity sha512-rlHjRKhwP9tNK0Yj2UJShL14mRfxLPgJ+Pv6zTv/Mvmd4wrwGnJf+5ybOAGK92S02hP1cXH+9km+PRO1b4V+ng==
+  dependencies:
+    prop-types "^15.6.1"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -956,7 +968,7 @@
   resolved "https://registry.yarnpkg.com/@editorjs/delimiter/-/delimiter-1.1.0.tgz#f61808ea92e4e289607d54441964f1cb8605410a"
   integrity sha512-0G36vEvvb94g6nu/qs2rVjC/qjxLnY20OfOgxROKSOOXzS7xnkTij5raeIxRiYueeLL5fMrzrvtFH7wclfxF+g==
 
-"@editorjs/editorjs@^2.16.1":
+"@editorjs/editorjs@^2.12.4", "@editorjs/editorjs@^2.16.1":
   version "2.16.1"
   resolved "https://registry.yarnpkg.com/@editorjs/editorjs/-/editorjs-2.16.1.tgz#41a2707fc126518dca513a09aa207aa8b6d9a65c"
   integrity sha512-PfCG7UZeFW/QtdcN3/gC0qIUinQ/TL5XuODllxWRx7GMEFHYWwen2YOwbW3KN0Rp6Ue94HbJua7Hn3HToH9wug==
@@ -1284,6 +1296,15 @@
   integrity sha512-Debi3Baff1Qu1Unc3mjJ96MgpbwTn43S1+9yJ0llWygPwDNu2aaWBD6yc9y/Z8XDRNhx7U+u2UDg2OGQXkclUQ==
   dependencies:
     type-detect "4.0.8"
+
+"@stfy/react-editor.js@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@stfy/react-editor.js/-/react-editor.js-1.0.3.tgz#1b004b88983771a796d181a5350eae237fd3aaee"
+  integrity sha512-yXEKkqcjjK4HRb11Ei3gpfcnwyeqTWMcFMRFR1Fj1jnSSWyoJt5ofcE82bGDBoLSf8z4o1bSituB16mpmwakiQ==
+  dependencies:
+    "@editorjs/editorjs" "^2.12.4"
+    react "^16.8.6"
+    react-dom "^16.8.6"
 
 "@types/babel__core@^7.1.0":
   version "7.1.6"
@@ -6497,7 +6518,7 @@ prop-types-exact@1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@15.7.2, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -6621,7 +6642,7 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dom@^16.13.0:
+react-dom@^16.13.0, react-dom@^16.8.6:
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.0.tgz#cdde54b48eb9e8a0ca1b3dc9943d9bb409b81866"
   integrity sha512-y09d2c4cG220DzdlFkPTnVvGTszVvNpC73v+AaLGLHbkpy3SSgvYq8x0rNwPJ/Rk/CicTNgk0hbHNw1gMEZAXg==
@@ -6661,7 +6682,7 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.13.0:
+react@^16.13.0, react@^16.8.6:
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.0.tgz#d046eabcdf64e457bbeed1e792e235e1b9934cf7"
   integrity sha512-TSavZz2iSLkq5/oiE7gnFzmURKZMltmi193rm5HEoUDAXpzT9Kzw6oNZnGoai/4+fUnm7FqS5dwgUL34TujcWQ==

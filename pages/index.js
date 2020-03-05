@@ -9,9 +9,15 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
+import TextEditor from '../components/EditorJS'
+// const Editor = dynamic(import ('@stfy/react-editor.js'),{ssr:false});
+
+// const CKEditor = dynamic(import ('@ckeditor/ckeditor5-react'),{ssr:false});
+// const ClassicEditor = dynamic(import ('@ckeditor/ckeditor5-build-classic'),{ssr:false});
+
+
 import ListItemText from '@material-ui/core/ListItemText';
-const EditorJs=dynamic(import ('react-editor-js'),{ssr:false});
-import { EDITOR_JS_TOOLS } from "../components/EditorJS";
+import EDITOR_JS_TOOLS  from "../components/EditorJS";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,6 +42,8 @@ const useStyles = makeStyles(theme => ({
 
 const Home = () => {
   const classes = useStyles();
+
+  console.log(EDITOR_JS_TOOLS)
   
   return (
   
@@ -76,8 +84,50 @@ const Home = () => {
         <div className={classes.toolbar} />
         <div className="dl-container">
             <TechniqieBody/>
+            <div id="editorjs-container"/>
+            <TextEditor/>
+            {/* <Editor
+              autofocus
+              holder="editorjs-container"
+              onChange={() => console.log('Something is changing!!')}
+              onData={(data) => console.log(data)}
+              customTools={EDITOR_JS_TOOLS}
+              onReady={() => console.log('Start!')}
+              data={{
+                "time" : 1554920381017,
+                "blocks" : [
+                    {
+                        "type" : "header",
+                        "data" : {
+                            "text" : "Hello Editor.js",
+                            "level" : 2
+                        }
+                    },
+                ],
+                "version" : "2.12.4"
+              }}
+            /> */}
 
-            <EditorJs
+{/* <CKEditor
+                    editor={ ClassicEditor }
+                    data="<p>Hello from CKEditor 5!</p>"
+                    onInit={ editor => {
+                        // You can store the "editor" and use when it is needed.
+                        console.log( 'Editor is ready to use!', editor );
+                    } }
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+                        console.log( { event, editor, data } );
+                    } }
+                    onBlur={ ( event, editor ) => {
+                        console.log( 'Blur.', editor );
+                    } }
+                    onFocus={ ( event, editor ) => {
+                        console.log( 'Focus.', editor );
+                    } }
+                /> */}
+
+           {/* <EditorJs
               tools={EDITOR_JS_TOOLS}
               data={{
                 time: 1556098174501,
@@ -190,7 +240,7 @@ const Home = () => {
                 ],
                 version: "2.12.4"
               }}
-            />
+            />*/}
         </div> 
       </main>
       <sidebar className={`grid__col-3 ${classes.content}`}>
