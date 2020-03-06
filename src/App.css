@@ -8,6 +8,22 @@
           font-weight: 400;
           font-size: 1.2em;
       }
+
+      sidebar {
+        position: sticky;
+        top: 0rem;
+        align-self: start;
+      }
+
+      .readable {
+        width: 65% !important;
+        margin: auto;
+      }
+      
+      html{
+        scroll-behavior: smooth;
+        scroll-padding-top: 8em;
+      }
       .dl-container{
         padding: 3em 1em !important;
       }

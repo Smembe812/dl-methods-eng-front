@@ -12,75 +12,83 @@ export default function TechniqieBody() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h4" gutterBottom>
-        Technique Name
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
+    <div className={`readable ${classes.root}`}>
+      <section id="description">
+        <Typography variant="h4" gutterBottom>
+          Technique Name
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+        </Typography>
+      </section>
       <br/>
       <br/>
-      <Typography variant="h5" gutterBottom>
-        Motivation
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+      <section id="motivation">
+        <Typography variant="h5" gutterBottom>
+          Motivation
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
 
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
 
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+        </Typography>
+
+      </section>
       <br/>
       <br/>
-      <Typography variant="h5" gutterBottom>
-        Steps
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        Step 1
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+      <section id="steps">
 
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
+        <Typography variant="h5" gutterBottom>
+          Steps
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          Step 1
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
 
-      <Typography variant="h6" gutterBottom>
-        Step 2
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+        </Typography>
 
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
-      <Typography variant="h6" gutterBottom>
-        Step 3
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+        <Typography variant="h6" gutterBottom>
+          Step 2
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
 
-        body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-        unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-        dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-      </Typography>
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          Step 3
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+
+          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
+        </Typography>
+      </section>  
       
     </div>
   );
