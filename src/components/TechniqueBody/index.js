@@ -14,47 +14,40 @@ export default function TechniqieBody() {
   return (
     <div className={`readable ${classes.root}`}>
       <section id="description">
-        <Typography variant="h4" gutterBottom>
-          Technique Name
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+        <div>
+          <h4 className="typography__heading-four">Technique Name</h4>
+          <p className="typography__paragraph">
+              This is a paragraph body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-        </Typography>
+    
+          </p>
+        </div>
       </section>
-      <br/>
-      <br/>
       <section id="motivation">
-        <Typography variant="h5" gutterBottom>
-          Motivation
-        </Typography>
-        <Typography variant="body1" gutterBottom>
+        <h5 className="typography__heading-five">Motivation</h5>
+        <p className="typography__paragraph">
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
+          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam. body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
 
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-
-          body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-          unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-          dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-        </Typography>
+        </p>
 
       </section>
-      <br/>
-      <br/>
       <section id="steps">
 
-        <Typography variant="h5" gutterBottom>
+        <h5 className="typography__heading-five">
           Steps
-        </Typography>
-        <Typography variant="h6" gutterBottom>
+        </h5>
+        <h6 className="typography__heading-six">
           Step 1
-        </Typography>
-        <Typography variant="body1" gutterBottom>
+        </h6>
+        <p className="typography__paragraph">
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
@@ -62,12 +55,12 @@ export default function TechniqieBody() {
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-        </Typography>
+        </p>
 
-        <Typography variant="h6" gutterBottom>
+        <h6 className="typography__heading-six">
           Step 2
-        </Typography>
-        <Typography variant="body1" gutterBottom>
+        </h6>
+        <p className="typography__paragraph">
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
@@ -75,11 +68,11 @@ export default function TechniqieBody() {
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-        </Typography>
-        <Typography variant="h6" gutterBottom>
+        </p>
+        <h6 className="typography__heading-six">
           Step 3
-        </Typography>
-        <Typography variant="body1" gutterBottom>
+        </h6>
+        <p className="typography__paragraph">
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
@@ -87,7 +80,7 @@ export default function TechniqieBody() {
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-        </Typography>
+        </p>
       </section>  
       
     </div>

@@ -39,6 +39,7 @@ const tools = {
 
 
 function TextEditor(props){
+  //TODO: consider supporting OnBlur, onReady, OnData, onFocus method props
   console.log(EditorJS)
   let editor;
 
