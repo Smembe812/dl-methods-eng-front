@@ -26,7 +26,6 @@ const useStyles = makeStyles(theme => ({
     width: '300px',
   },
   content: {
-    flexGrow: 1,
     padding: theme.spacing(3),
   },
   toolbar: theme.mixins.toolbar,
@@ -35,16 +34,6 @@ const useStyles = makeStyles(theme => ({
 const TechniquesPage = () => {
   const classes = useStyles();
   const [inputData, saveInputData] = useState({})
-
-  const handleSave = async (editor) =>{
-    try {
-      const saved = await editor.save()
-      console.log(saved)
-      saveInputData(saved)
-    } catch (error) {
-      console.log(error)
-    }
-  }
   
   return (
   
@@ -76,22 +65,12 @@ const TechniquesPage = () => {
           ))}
         </List>
     </Drawer>
-    <div className="grid">
+    <div className="grid" style={{width: '100%'}}>
       <main className={`grid__col-9 ${classes.content}`}>
         <div className={classes.toolbar} />
         <div className="dl-container">
             <TechniqieBody TextEditor={TextEditor}/>
             <div id="editorjs-container"/>
-            <div className="readable">
-              <h3>Topic</h3> 
-              <div className="text-editor-container">
-                <TextEditor
-                  data={inputData}
-                  onData={(data) => console.log(data)}
-                  onChange={(e) => console.log('Something is changing!!', e)}
-                  />
-              </div>
-            </div>
             <div className="readable">
               <h3>Topic</h3> 
               <div className="text-editor-container">

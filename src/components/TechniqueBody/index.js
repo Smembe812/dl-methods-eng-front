@@ -1,5 +1,4 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -10,24 +9,44 @@ const useStyles = makeStyles({
 
 export default function TechniqieBody({TextEditor}) {
   const classes = useStyles();
+  const [description, setDescription] = useState({})
+  const [motivation, setMotivation] = useState({})
+  const [steps, setSteps] = useState({})
+
+  const handleSave = () => {
+    console.log('description', description)
+    console.log('motivation', motivation)
+    console.log('steps', steps)
+  }
 
   return (
     <div className={`readable ${classes.root}`}>
       <section id="description">
         <div>
           <h4 className="typography__heading-four">Technique Name</h4>
-          <TextEditor holderId="description-editor"/>
-          <p className="typography__paragraph">
+          <div className="text-editor-container">
+            <TextEditor holderId="description-editor"
+              onData={(data) => console.log(data)}
+              onChange={(e) => setDescription(e)}
+              />
+          </div>
+          {/* <p className="typography__paragraph">
               This is a paragraph body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
     
-          </p>
+          </p> */}
         </div>
       </section>
       <section id="motivation">
         <h5 className="typography__heading-five">Motivation</h5>
-        <p className="typography__paragraph">
+        <div className="text-editor-container">
+          <TextEditor holderId="motivation-editor"
+            onData={(data) => console.log(data)}
+            onChange={(e) => setMotivation(e)}
+            />
+        </div>
+        {/* <p className="typography__paragraph">
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam. body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
@@ -37,7 +56,7 @@ export default function TechniqieBody({TextEditor}) {
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-        </p>
+        </p> */}
 
       </section>
       <section id="steps">
@@ -45,7 +64,13 @@ export default function TechniqieBody({TextEditor}) {
         <h5 className="typography__heading-five">
           Steps
         </h5>
-        <h6 className="typography__heading-six">
+        <div className="text-editor-container">
+            <TextEditor holderId="steps-editor"
+              onData={(data) => console.log(data)}
+              onChange={(e) => setSteps(e)}
+            />
+          </div>
+        {/* <h6 className="typography__heading-six">
           Step 1
         </h6>
         <p className="typography__paragraph">
@@ -81,9 +106,9 @@ export default function TechniqieBody({TextEditor}) {
           body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-        </p>
+        </p> */}
       </section>  
-      
+      <button onClick={handleSave}>Save</button>
     </div>
   );
 }

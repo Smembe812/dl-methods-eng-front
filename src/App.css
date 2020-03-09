@@ -23,6 +23,11 @@
       .text-editor-container{
         border-left: solid;
       }
+      @media only screen and (max-width: 1800px) {
+        .text-editor-container{
+          padding-left: 3rem;
+        }
+      }
       
       .codex-editor__redactor{
         padding-bottom: 2rem !important;

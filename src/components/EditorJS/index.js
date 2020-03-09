@@ -40,10 +40,10 @@ const tools = {
 
 function TextEditor(props){
   //TODO: consider supporting OnBlur, onReady, OnData, onFocus method props
-  console.log(EditorJS)
   let editor;
-  const {holderId} = props
+  const {holderId, placeholder} = props
 
+  let  placeholderConfig = placeholder? `${placeholder}...` : "Write Something..."
 
    useEffect(() => {
          initEditor()
@@ -55,7 +55,14 @@ function TextEditor(props){
       holderId,
       onChange: changeEmitter,
       data: {},
-      tools: { ...tools}
+      tools: { 
+        ...tools, 
+        paragraph: {
+          config: {
+            placeholder: placeholderConfig
+          }
+        }
+      }
    })
  }
 
