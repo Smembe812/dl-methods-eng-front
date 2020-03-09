@@ -1,46 +1,44 @@
 import React, {useState} from 'react';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+
+import ToCLink from './ToC-Link'
+import TocItem from './ToC-Item'
 
 function TableOfContents() {
   //TODO: {function} to handle when clicking outside a component
-
-  const handleOnClick = (e) => {
-    const className = "toc__a toc__a--active"
-    e.target.className = className
-    return className
-  }
-
-  const handleOnBlur = (e) => {
-    const className = "toc__a"
-    e.target.className = className
-    return className
-  }
-
   return (
       <ul className="toc">
-        <li className="toc__item">
-          <a href="#description" className="toc__a" onClick={handleOnClick}>Description</a>
-            <ul className="toc__sub-toc">
-              <li className="toc__item">
-                <a href="#introduction" className="toc__a">Description</a>
-              </li>
-              <li className="toc__item">
-                  <a href="#introduction" className="toc__a">Motivation</a>
-              </li>
-            </ul>
-        </li>
-        <li className="toc__item">
-        <a href="#motivation" className="toc__a">Motivation</a>
-            
-        </li>
-        <li className="toc__item">
-          <a href="#steps" className="toc__a">Steps</a>
-        </li>
-        <li className="toc__item">
-        <a href="#related-to" className="toc__a">Related to</a>
-        </li>
-        <li className="toc__item">
-          <a href="#resources" className="toc__a">Resources</a>
-        </li>
+        <TocItem>
+          <ToCLink href="#description">
+            Description
+          </ToCLink>
+
+          <ul className="toc__sub-toc">
+            <ToCLink href="#introduction">
+              Introduction
+            </ToCLink>
+          </ul>
+        </TocItem>
+        <TocItem>
+          <ToCLink href="#motivation">
+            Motivation
+          </ToCLink>
+        </TocItem>
+        <TocItem>
+          <ToCLink href="#steps">
+            Steps
+          </ToCLink>
+        </TocItem>
+        <TocItem>
+          <ToCLink href="#related-to">
+            Related to
+          </ToCLink>
+        </TocItem>
+        <TocItem>
+          <ToCLink href="#resources">
+            Resources
+          </ToCLink>
+        </TocItem>
       </ul>
   );
 }
