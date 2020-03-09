@@ -71,17 +71,6 @@ const TechniquesPage = () => {
         <div className="dl-container">
             <TechniqieBody TextEditor={TextEditor}/>
             <div id="editorjs-container"/>
-            <div className="readable">
-              <h3>Topic</h3> 
-              <div className="text-editor-container">
-                <TextEditor
-                  holderId="editor1"
-                  data={inputData}
-                  onData={(data) => console.log(data)}
-                  onChange={(e) => console.log('Something is changing!!', e)}
-                  />
-              </div>
-            </div>
         </div> 
       </main>
       <sidebar className={`grid__col-3 ${classes.content}`}>

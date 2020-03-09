@@ -107,8 +107,12 @@ export default function TechniqieBody({TextEditor}) {
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
         </p> */}
-      </section>  
-      <button onClick={handleSave}>Save</button>
+      </section>
+
+      <br/>
+      <br/>
+      <button className="dl-btn dl-btn__dark" onClick={handleSave}>Save</button>
+      <button className="dl-btn dl-btn__secondary">secondary action</button>
     </div>
   );
 }

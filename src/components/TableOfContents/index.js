@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 import ToCLink from './ToC-Link'
 import TocItem from './ToC-Item'
 
 function TableOfContents() {
-  //TODO: {function} to handle when clicking outside a component
   return (
       <ul className="toc">
         <TocItem>
@@ -42,5 +40,7 @@ function TableOfContents() {
       </ul>
   );
 }
+
+
 
 export default TableOfContents
