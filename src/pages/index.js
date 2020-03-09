@@ -80,12 +80,23 @@ const TechniquesPage = () => {
       <main className={`grid__col-9 ${classes.content}`}>
         <div className={classes.toolbar} />
         <div className="dl-container">
-            <TechniqieBody/>
+            <TechniqieBody TextEditor={TextEditor}/>
             <div id="editorjs-container"/>
             <div className="readable">
               <h3>Topic</h3> 
               <div className="text-editor-container">
                 <TextEditor
+                  data={inputData}
+                  onData={(data) => console.log(data)}
+                  onChange={(e) => console.log('Something is changing!!', e)}
+                  />
+              </div>
+            </div>
+            <div className="readable">
+              <h3>Topic</h3> 
+              <div className="text-editor-container">
+                <TextEditor
+                  holderId="editor1"
                   data={inputData}
                   onData={(data) => console.log(data)}
                   onChange={(e) => console.log('Something is changing!!', e)}

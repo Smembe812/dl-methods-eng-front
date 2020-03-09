@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TechniqieBody() {
+export default function TechniqieBody({TextEditor}) {
   const classes = useStyles();
 
   return (
@@ -16,6 +16,7 @@ export default function TechniqieBody() {
       <section id="description">
         <div>
           <h4 className="typography__heading-four">Technique Name</h4>
+          <TextEditor holderId="description-editor"/>
           <p className="typography__paragraph">
               This is a paragraph body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam

@@ -42,6 +42,7 @@ function TextEditor(props){
   //TODO: consider supporting OnBlur, onReady, OnData, onFocus method props
   console.log(EditorJS)
   let editor;
+  const {holderId} = props
 
 
    useEffect(() => {
@@ -50,9 +51,8 @@ function TextEditor(props){
 
 
   async function initEditor() {
-
    editor = new EditorJS({ 
-      holderId: 'codex-editor', 
+      holderId,
       onChange: changeEmitter,
       data: {},
       tools: { ...tools}
@@ -84,7 +84,7 @@ function TextEditor(props){
   }
 
   return (
-    <div id="codex-editor">
+    <div id={`${holderId}`}>
 
     </div>
   )
