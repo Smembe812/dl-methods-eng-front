@@ -82,11 +82,16 @@ const TechniquesPage = () => {
         <div className="dl-container">
             <TechniqieBody/>
             <div id="editorjs-container"/>
-            <TextEditor
-              data={inputData}
-              onData={(data) => console.log(data)}
-              onChange={(e) => console.log('Something is changing!!', e)}
-              />
+            <div className="readable">
+              <h3>Topic</h3> 
+              <div className="text-editor-container">
+                <TextEditor
+                  data={inputData}
+                  onData={(data) => console.log(data)}
+                  onChange={(e) => console.log('Something is changing!!', e)}
+                  />
+              </div>
+            </div>
             {/* <Editor
               autofocus
               holder="editorjs-container"

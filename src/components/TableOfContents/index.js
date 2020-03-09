@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
@@ -11,8 +11,22 @@ const useStyles = makeStyles({
   },
 });
 
+
+
 function TableOfContents() {
   const classes = useStyles();
+
+  const handleOnClick = (e) => {
+    const className = "toc__a toc__a--active"
+    e.target.className = className
+    return className
+  }
+
+  const handleOnBlur = (e) => {
+    const className = "toc__a"
+    e.target.className = className
+    return className
+  }
 
   return (
       // <MenuList>
@@ -34,7 +48,7 @@ function TableOfContents() {
       // </MenuList>
       <ul className="toc">
         <li>
-          <a href="#description" className="toc__a">Description</a>
+          <a href="#description" className="toc__a" onClick={handleOnClick}>Description</a>
             <ul className="toc">
               <li >
                 <a href="#introduction" className="toc__a">Description</a>

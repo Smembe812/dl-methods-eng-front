@@ -25,3 +25,7 @@
 .toc__a:active{
     color: black;
 }
+
+.toc__a--active{
+    color: black !important;
+}

@@ -19,7 +19,15 @@
         width: 65% !important;
         margin: auto;
       }
+
+      .text-editor-container{
+        border-left: solid;
+      }
       
+      .codex-editor__redactor{
+        padding-bottom: 2rem !important;
+      }
+
       html{
         scroll-behavior: smooth;
         scroll-padding-top: 8em;
@@ -27,6 +35,7 @@
       .dl-container{
         padding: 3em 1em !important;
       }
+
       * {
         box-sizing: border-box;
       }
