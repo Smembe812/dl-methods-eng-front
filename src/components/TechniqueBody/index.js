@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios'
 
 const useStyles = makeStyles({
   root: {
@@ -13,10 +14,35 @@ export default function TechniqieBody({TextEditor}) {
   const [motivation, setMotivation] = useState({})
   const [steps, setSteps] = useState({})
 
+
+  useEffect(() => {
+    async function loadData(){
+      const {data: [singleTech, ...rest]} =  await axios.get(`http://localhost:3000/api/techniques`)
+      console.log(singleTech)
+
+      // setDescription(JSON.parse(singleTech.description))
+      // setMotivation(JSON.parse(singleTech.aim))
+      // setSteps(JSON.parse(singleTech.how))
+    }
+
+    loadData()
+  },[])
+
   const handleSave = () => {
     console.log('description', description)
     console.log('motivation', motivation)
     console.log('steps', steps)
+    
+    const payload = {
+      title: 'A ground breaking technique', 
+      aim: JSON.stringify(motivation), 
+      description: JSON.stringify(description),
+      how: JSON.stringify(steps)
+    }
+
+    axios.post(`http://localhost:3000/api/techniques`, payload)
+      .then( (data) => console.log(data))
+    
   }
 
   return (
