@@ -17,17 +17,26 @@ export default function TechniqieBody({TextEditor}) {
 
   useEffect(() => {
     async function loadData(){
-      const {data: [singleTech, ...rest]} =  await axios.get(`http://localhost:3000/api/techniques`)
-      console.log(singleTech)
+      const {data} =  await axios.get(`http://localhost:3000/api/techniques`)
+      const latestTech = data.pop()
 
-      // setDescription(JSON.parse(singleTech.description))
-      // setMotivation(JSON.parse(singleTech.aim))
-      // setSteps(JSON.parse(singleTech.how))
+      console.log(latestTech)
+
+      const values = {
+        description: JSON.parse(latestTech.description),
+        motivation: JSON.parse(latestTech.aim),
+        steps: JSON.parse(latestTech.how)
+      }
+
+      setDescription((prev) => ({...prev, ...values.description}))
+      setMotivation(values.aim)
+      setSteps(values.how)
     }
-
+    
     loadData()
   },[])
-
+  
+  
   const handleSave = () => {
     console.log('description', description)
     console.log('motivation', motivation)
@@ -39,10 +48,15 @@ export default function TechniqieBody({TextEditor}) {
       description: JSON.stringify(description),
       how: JSON.stringify(steps)
     }
-
-    axios.post(`http://localhost:3000/api/techniques`, payload)
-      .then( (data) => console.log(data))
     
+    axios.post(`http://localhost:3000/api/techniques`, payload)
+    .then( (data) => console.log(data))
+    
+  }
+  
+  console.log(description)
+  if (!description){
+    return null
   }
 
   return (
@@ -52,6 +66,9 @@ export default function TechniqieBody({TextEditor}) {
           <h4 className="typography__heading-four">Technique Name</h4>
           <div className="text-editor-container">
             <TextEditor holderId="description-editor"
+              data={() => {
+                console.log(description)
+                return description}}
               onData={(data) => console.log(data)}
               onChange={(e) => setDescription(e)}
               />
@@ -68,6 +85,7 @@ export default function TechniqieBody({TextEditor}) {
         <h5 className="typography__heading-five">Motivation</h5>
         <div className="text-editor-container">
           <TextEditor holderId="motivation-editor"
+            data={motivation}
             onData={(data) => console.log(data)}
             onChange={(e) => setMotivation(e)}
             />
@@ -92,6 +110,7 @@ export default function TechniqieBody({TextEditor}) {
         </h5>
         <div className="text-editor-container">
             <TextEditor holderId="steps-editor"
+              data={steps}
               onData={(data) => console.log(data)}
               onChange={(e) => setSteps(e)}
             />
