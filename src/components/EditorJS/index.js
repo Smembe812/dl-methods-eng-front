@@ -41,19 +41,25 @@ const tools = {
 function TextEditor(props){
   //TODO: consider supporting OnBlur, onReady, OnData, onFocus method props
   let editor;
-  const {holderId, placeholder, data} = props
+  const {holder, placeholder, data, ref, onData} = props
 
   let  placeholderConfig = placeholder? `${placeholder}...` : "Write Something..."
 
   useEffect(() => {
     initEditor()
-  }, [])
+
+    // if(onData && typeof onData == 'function'){
+    //   emmitIsReady(onData)
+    // }
+
+  }, [data])
 
 
   async function initEditor() {
    editor = new EditorJS({ 
-      holderId,
+      holder,
       onChange: changeEmitter,
+      // isReady: emmitIsReady,
       data,
       tools: { 
         ...tools, 
@@ -65,6 +71,12 @@ function TextEditor(props){
       }
    })
  }
+
+//  const emmitIsReady = async (cb) => {
+//   console.log('ready af', editor)
+//   // editor.configuration.data = data
+//   cb(editor.isReady)
+//  }
 
   const changeEmitter = async () => {
      const {onChange} = props
@@ -79,7 +91,7 @@ function TextEditor(props){
   }
 
   return (
-    <div id={`${holderId}`}>
+    <div id={`${holder}`} ref={ref}>
 
     </div>
   )
