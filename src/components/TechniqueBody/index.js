@@ -34,21 +34,7 @@ export default function TechniqieBody({TextEditor}) {
       steps: JSON.parse(latestTech.how)
     }
 
-  setDescription((prev) => (
-    {
-      "time" : 1554920381017,
-      "blocks" : [
-          {
-              "type" : "header",
-              "data" : {
-                  "text" : "Hello Editor.js",
-                  "level" : 2
-              }
-          },
-      ],
-      "version" : "2.12.4"
-    }
-  ))
+    setDescription(values.description)
     setMotivation(values.aim)
     setSteps(values.how)
   }

@@ -41,25 +41,36 @@ const tools = {
 function TextEditor(props){
   //TODO: consider supporting OnBlur, onReady, OnData, onFocus method props
   let editor;
-  const {holder, placeholder, data, ref, onData} = props
+  const [isReady, setIsReady] = useState(false)
+  const {holder, placeholder, data} = props
 
   let  placeholderConfig = placeholder? `${placeholder}...` : "Write Something..."
 
   useEffect(() => {
-    initEditor()
+    console.log(isReady)
+    // if (isReady){
+    //   // destroyInstance()
+    //     initEditor()
+    //     // .catch(err => console.log(err))
+      
+    //   // initEditor()
+    // }else{
 
+      initEditor()
+    // }
+    return () => destroyInstance()
     // if(onData && typeof onData == 'function'){
     //   emmitIsReady(onData)
     // }
 
-  }, [data])
+  }, [isReady])
 
 
   async function initEditor() {
    editor = new EditorJS({ 
       holder,
       onChange: changeEmitter,
-      // isReady: emmitIsReady,
+      onReady: () => setIsReady(true),
       data,
       tools: { 
         ...tools, 
@@ -78,6 +89,22 @@ function TextEditor(props){
 //   cb(editor.isReady)
 //  }
 
+
+const destroyInstance = async () => {
+  if (editor) {
+    try {
+      await editor.isReady;
+
+      editor.destroy();
+      return Promise.resolve(true)
+    } catch (err) {
+      console.error(err);
+      return Promise.reject(err)
+    }
+  }
+
+  return false;
+}
   const changeEmitter = async () => {
      const {onChange} = props
      console.log(editor)
@@ -91,7 +118,7 @@ function TextEditor(props){
   }
 
   return (
-    <div id={`${holder}`} ref={ref}>
+    <div id={`${holder}`}>
 
     </div>
   )
