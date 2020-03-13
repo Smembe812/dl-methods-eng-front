@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios'
 
@@ -10,7 +10,6 @@ const useStyles = makeStyles({
 
 export default function TechniqieBody({TextEditor}) {
   const classes = useStyles();
-  const component = useRef(null);
   
   const [description, setDescription] = useState({})
   const [motivation, setMotivation] = useState({})
@@ -19,14 +18,11 @@ export default function TechniqieBody({TextEditor}) {
   
   useEffect(() => {
     loadData()
-    console.log(component.current)
   },[])
   
   async function loadData(){
     const {data} =  await axios.get(`http://localhost:3000/api/techniques`)
     const latestTech = data.pop()
-
-    console.log(latestTech)
 
     const values = {
       description: JSON.parse(latestTech.description),
@@ -35,11 +31,11 @@ export default function TechniqieBody({TextEditor}) {
     }
 
     setDescription(values.description)
-    setMotivation(values.aim)
-    setSteps(values.how)
+    setMotivation(values.motivation)
+    setSteps(values.steps)
   }
         
-  
+  console.log({description, motivation, steps})
   
   const handleSave = () => {
     console.log('description', description)
@@ -67,19 +63,15 @@ export default function TechniqieBody({TextEditor}) {
           <div className="text-editor-container">
             <TextEditor holder="description-editor"
               data={description}
-              ref={el => this.component = el}
-              onData={(data) => {
-                data().then(res => console.log(res)).catch(error => console.log(error))
-              }}
               onChange={(e) => setDescription(e)}
               />
           </div>
-          {/* <p className="typography__paragraph">
+          <p className="typography__paragraph">
               This is a paragraph body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
           unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
           dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
     
-          </p> */}
+          </p>
         </div>
       </section>
       <section id="motivation">

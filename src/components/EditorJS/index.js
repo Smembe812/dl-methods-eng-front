@@ -47,48 +47,27 @@ function TextEditor(props){
   let  placeholderConfig = placeholder? `${placeholder}...` : "Write Something..."
 
   useEffect(() => {
-    console.log(isReady)
-    // if (isReady){
-    //   // destroyInstance()
-    //     initEditor()
-    //     // .catch(err => console.log(err))
-      
-    //   // initEditor()
-    // }else{
-
       initEditor()
-    // }
     return () => destroyInstance()
-    // if(onData && typeof onData == 'function'){
-    //   emmitIsReady(onData)
-    // }
-
   }, [isReady])
 
 
-  async function initEditor() {
-   editor = new EditorJS({ 
-      holder,
-      onChange: changeEmitter,
-      onReady: () => setIsReady(true),
-      data,
-      tools: { 
-        ...tools, 
-        paragraph: {
-          config: {
-            placeholder: placeholderConfig
-          }
+async function initEditor() {
+  editor = new EditorJS({ 
+    holder,
+    onChange: changeEmitter,
+    onReady: () => setIsReady(true),
+    data,
+    tools: { 
+      ...tools, 
+      paragraph: {
+        config: {
+          placeholder: placeholderConfig
         }
       }
-   })
- }
-
-//  const emmitIsReady = async (cb) => {
-//   console.log('ready af', editor)
-//   // editor.configuration.data = data
-//   cb(editor.isReady)
-//  }
-
+    }
+  })
+}
 
 const destroyInstance = async () => {
   if (editor) {
