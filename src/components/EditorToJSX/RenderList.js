@@ -1,6 +1,6 @@
 import React from "react";
 
-function RenderParagraph({block, options={}}){
+function RenderList({block, options={}}){
     const {className} = options
     let receivedBlock;
     if(typeof block === "string"){
@@ -12,10 +12,10 @@ function RenderParagraph({block, options={}}){
     else{
         return null
     }
-    
     const {type, data: {text}} = receivedBlock
     
-    if(type === "paragraph"){
+    console.log("in null game", type)
+    if(type === "list"){
         if (className){
             return <p className={className}>{text}</p>
         }
@@ -24,4 +24,4 @@ function RenderParagraph({block, options={}}){
     }
 }
 
-export default RenderParagraph
+export default RenderList

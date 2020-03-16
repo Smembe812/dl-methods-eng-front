@@ -5,6 +5,8 @@ import renderer from 'react-test-renderer';
 
 import RenderHeader from './RenderHeader'
 import RenderParagraph from './RenderParagraph'
+import RenderList from './RenderList'
+import RenderListItem from './RenderListItem'
 
 describe('Convert EditorJS data to JSX', () => {
     let container = null;
@@ -162,12 +164,44 @@ describe('Convert EditorJS data to JSX', () => {
         
 
     })
+    describe("render lists", () => {
+        const listBlock = {
+            "type" : "list",
+            "data" : {
+                "style" : "unordered",
+                "items" : [
+                    "It is a block-styled editor",
+                    "It returns clean data output in JSON",
+                    "Designed to be extendable and pluggable with a simple API"
+                ]
+            }
+        }
+
+        it("should render lists", (done) => {
+            const tree = renderer
+            .create(
+                <RenderList block={listBlock}
+                    options={{className:"class-name"}}/>)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+        done()
+        })
+
+        it("should render list item", (done) => {
+            const tree = renderer
+            .create(
+                <RenderListItem item={listBlock.data.items[0]}
+                    options={{className:"class-name"}}/>)
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+        done()
+        })
+
+    })
     it.todo("should render")
     it.todo("should render img")
-    it.todo("should render lists")
     it.todo("should render table")
     it.todo("should render checklist")
-    it.todo("should render paragraph")
     it("Should always run" , (done) => {
         expect(1).toBe(1)
         done()

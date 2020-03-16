@@ -48,6 +48,20 @@ exports[`Convert EditorJS data to JSX render header should render h6 with classN
 </h6>
 `;
 
+exports[`Convert EditorJS data to JSX render lists should render list item 1`] = `
+<li
+  className="class-name"
+>
+  It is a block-styled editor
+</li>
+`;
+
+exports[`Convert EditorJS data to JSX render lists should render lists 1`] = `
+<p
+  className="class-name"
+/>
+`;
+
 exports[`Convert EditorJS data to JSX render paragraph should render a pragraph with className 1`] = `
 <p
   className="class-name"
