@@ -3,10 +3,12 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 import renderer from 'react-test-renderer';
 
-import RenderHeader from './RenderHeader'
-import RenderParagraph from './RenderParagraph'
-import RenderList from './RenderList'
-import RenderListItem from './RenderListItem'
+import {
+    RenderHeader, 
+    RenderParagraph,
+    RenderList,
+    RenderListItem
+} from './index'
 
 describe('Convert EditorJS data to JSX', () => {
     let container = null;
