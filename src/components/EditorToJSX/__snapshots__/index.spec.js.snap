@@ -1,12 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Convert EditorJS data to JSX render header should render h1 1`] = `
-<h1>
+<h1
+  className="d"
+>
+  Editor.js
+</h1>
+`;
+
+exports[`Convert EditorJS data to JSX render header should render h1 with className 1`] = `
+<h1
+  className="class-name"
+>
   Editor.js
 </h1>
 `;
 
 exports[`Convert EditorJS data to JSX render header should render h2 1`] = `
+<h2>
+  Editor.js
+</h2>
+`;
+
+exports[`Convert EditorJS data to JSX render header should render h2 with className 1`] = `
 <h2>
   Editor.js
 </h2>
@@ -18,7 +34,19 @@ exports[`Convert EditorJS data to JSX render header should render h3 1`] = `
 </h3>
 `;
 
+exports[`Convert EditorJS data to JSX render header should render h3 with className 1`] = `
+<h3>
+  Editor.js
+</h3>
+`;
+
 exports[`Convert EditorJS data to JSX render header should render h4 1`] = `
+<h4>
+  Editor.js
+</h4>
+`;
+
+exports[`Convert EditorJS data to JSX render header should render h4 with className 1`] = `
 <h4>
   Editor.js
 </h4>
@@ -30,7 +58,19 @@ exports[`Convert EditorJS data to JSX render header should render h5 1`] = `
 </h5>
 `;
 
+exports[`Convert EditorJS data to JSX render header should render h5 with className 1`] = `
+<h5>
+  Editor.js
+</h5>
+`;
+
 exports[`Convert EditorJS data to JSX render header should render h6 1`] = `
+<h6>
+  Editor.js
+</h6>
+`;
+
+exports[`Convert EditorJS data to JSX render header should render h6 with className 1`] = `
 <h6>
   Editor.js
 </h6>

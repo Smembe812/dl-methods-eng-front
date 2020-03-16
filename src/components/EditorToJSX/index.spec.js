@@ -67,7 +67,8 @@ describe('Convert EditorJS data to JSX', () => {
         ]
         it("should render header", (done) => {
             act(() => {
-                render(<RenderHeader block={headerBlocks[0]}/>, container);
+                render(<RenderHeader block={headerBlocks[0]}
+                    options={{className:"class-name"}}/>, container);
               });
           
               // const linkElement = getByText(/learn react/i);
@@ -76,49 +77,59 @@ describe('Convert EditorJS data to JSX', () => {
             done()
         })
     
-        it("should render h1", (done) => {
+        it("should render h1 with className", (done) => {
             const tree = renderer
-                .create(<RenderHeader block={headerBlocks[0]}/>)
+                .create(
+                <RenderHeader 
+                    block={headerBlocks[0]} 
+                    options={{className:"class-name"}}/>)
                 .toJSON();
             expect(tree).toMatchSnapshot();
             done()
         })
 
-        it("should render h2", (done) => {
+        it("should render h2 with className", (done) => {
             const tree = renderer
-                .create(<RenderHeader block={headerBlocks[1]}/>)
+                .create(
+                <RenderHeader 
+                    block={headerBlocks[1]}
+                    options={{className:"class-name"}}/>)
                 .toJSON();
             expect(tree).toMatchSnapshot();
             done()
         })
 
-        it("should render h3", (done) => {
+        it("should render h3 with className", (done) => {
             const tree = renderer
-                .create(<RenderHeader block={headerBlocks[2]}/>)
+                .create(<RenderHeader block={headerBlocks[2]}
+                    options={{className:"class-name"}}/>)
                 .toJSON()
             expect(tree).toMatchSnapshot();
             done()
         })
 
-        it("should render h4", (done) => {
+        it("should render h4 with className", (done) => {
             const tree = renderer
-                .create(<RenderHeader block={headerBlocks[3]}/>)
+                .create(<RenderHeader block={headerBlocks[3]}
+                    options={{className:"class-name"}}/>)
                 .toJSON();
             expect(tree).toMatchSnapshot();
             done()
         })
 
-        it("should render h5", (done) => {
+        it("should render h5 with className", (done) => {
             const tree = renderer
-                .create(<RenderHeader block={headerBlocks[4]}/>)
+                .create(<RenderHeader block={headerBlocks[4]}
+                    options={{className:"class-name"}}/>)
                 .toJSON();
             expect(tree).toMatchSnapshot();
             done()
         })
 
-        it("should render h6", (done) => {
+        it("should render h6 with className", (done) => {
             const tree = renderer
-                .create(<RenderHeader block={headerBlocks[5]}/>)
+                .create(<RenderHeader block={headerBlocks[5]}
+                    options={{className:"class-name"}}/>)
                 .toJSON();
             expect(tree).toMatchSnapshot();
             done()

@@ -1,7 +1,7 @@
 import React from "react";
 
-function RenderHeader({block}){
-    console.log(typeof block)
+function RenderHeader({block, options={}}){
+    const {className} = options
     let receivedBlock;
     if(typeof block === "string"){
         receivedBlock = JSON.parse(block)
@@ -17,6 +17,9 @@ function RenderHeader({block}){
     if(type === "header"){
         switch(level){
             case 1:
+                if(className){
+                    return <h1 className={className}>{text}</h1>
+                }
                 return <h1>{text}</h1>
             case 2:
                 return <h2>{text}</h2> 
