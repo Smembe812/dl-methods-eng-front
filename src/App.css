@@ -9,7 +9,7 @@
           font-size: 1.2em;
       }
 
-      sidebar {
+      .sidebar {
         position: sticky;
         top: 0rem;
         align-self: start;

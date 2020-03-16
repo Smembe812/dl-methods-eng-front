@@ -73,20 +73,20 @@ const TechniquesPage = () => {
             <div id="editorjs-container"/>
         </div> 
       </main>
-      <sidebar className={`grid__col-3 ${classes.content}`}>
+      <aside className={`grid__col-3 ${classes.content}`}>
         <div className={classes.toolbar} />
         <div className="dl-container">
           <TableOfContents/>
         </div>
-      </sidebar>
+      </aside>
 
     </div>
 
     <footer>
     </footer>
 
-    <style jsx>{`
-    `}</style>
+    {/* <style jsx>{`
+    `}</style>*/}
 
     <style jsx global>{`
       html,
