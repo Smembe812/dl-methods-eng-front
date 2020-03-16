@@ -4,20 +4,23 @@ import { act } from "react-dom/test-utils";
 import renderer from 'react-test-renderer';
 
 import RenderHeader from './RenderHeader'
+import RenderParagraph from './RenderParagraph'
 
 describe('Convert EditorJS data to JSX', () => {
     let container = null;
-    beforeEach(() => {
+    beforeEach((done) => {
       // setup a DOM element as a render target
       container = document.createElement("div");
       document.body.appendChild(container);
+      done()
     });
     
-    afterEach(() => {
+    afterEach((done) => {
       // cleanup on exiting
       unmountComponentAtNode(container);
       container.remove();
       container = null;
+      done()
     });
 
     describe("render header", () => {
@@ -136,6 +139,29 @@ describe('Convert EditorJS data to JSX', () => {
         })
     })
 
+
+    describe("render paragraph", () => {
+
+        const paragraphBlock = [
+            {
+                "type" : "paragraph",
+                "data" : {
+                    "text" : "Editor.js"
+                }
+            }
+        ]
+        it("should render a pragraph with className", (done) => {
+            const tree = renderer
+                    .create(
+                        <RenderParagraph block={paragraphBlock[0]}
+                            options={{className:"class-name"}}/>)
+                    .toJSON();
+                expect(tree).toMatchSnapshot();
+                done()
+        })
+        
+
+    })
     it.todo("should render")
     it.todo("should render img")
     it.todo("should render lists")
