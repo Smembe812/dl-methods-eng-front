@@ -1,6 +1,6 @@
 import React from "react";
 
-function RenderListItem({item, options={}}){
+function RenderListItem({item, options={}, children}){
     const {className} = options
 
     if(typeof item === "string"){
@@ -9,6 +9,13 @@ function RenderListItem({item, options={}}){
         }
 
         return <li>{item}</li>
+    }
+
+    if(children){
+        if (className){
+            return <li className={className}>{children}</li>
+        }
+        return <li>{children}</li>
     }
 }
 

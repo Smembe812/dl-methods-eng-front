@@ -1,7 +1,8 @@
 import React from "react";
+import RenderListItem from './RenderListItem'
 
-function RenderList({block, options={}}){
-    const {className} = options
+function RenderList({block, children, options={}}){
+    const {className, classNameItem} = options
     let receivedBlock;
     if(typeof block === "string"){
         receivedBlock = JSON.parse(block)
@@ -12,16 +13,51 @@ function RenderList({block, options={}}){
     else{
         return null
     }
-    const {type, data: {text}} = receivedBlock
+    const {type, data: {style, items}} = receivedBlock
     
-    console.log("in null game", type)
     if(type === "list"){
-        if (className){
-            return <p className={className}>{text}</p>
+        if(style === "unordered" && !children){
+            return renderUnorderdList(items, {className, classNameItem})
         }
 
-        return <p>{text}</p>
+        if(children){
+            if (className){
+                return(
+                    <ul className={className}>
+                        {children}
+                    </ul>
+                )
+            }
+            return <ul>{children}</ul>
+        }
+        
+        return null
     }
+    
+    function renderUnorderdList(items, options=null){
+        const listItems = items.map((item) => {
+            if(options && classNameItem){
+                return <RenderListItem 
+                            options={{className: classNameItem}}>
+                            {item}
+                        </RenderListItem>
+            }
+            return <RenderListItem>{item}</RenderListItem>
+        })
+        if(options && className){
+            return(
+                <ul className={className}>
+                    {listItems}
+                </ul>
+            )
+        }
+        return(
+            <ul>
+                {listItems}
+            </ul>
+        )
+    }
+    function renderOrderdList(){}
 }
 
 export default RenderList

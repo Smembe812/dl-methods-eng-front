@@ -56,10 +56,54 @@ exports[`Convert EditorJS data to JSX render lists should render list item 1`] =
 </li>
 `;
 
-exports[`Convert EditorJS data to JSX render lists should render lists 1`] = `
-<p
+exports[`Convert EditorJS data to JSX render lists should render list item as child 1`] = `
+<li
   className="class-name"
-/>
+>
+  It is a block-styled editor
+</li>
+`;
+
+exports[`Convert EditorJS data to JSX render lists should render lists 1`] = `
+<ul>
+  <li
+    className="item-class-name"
+  >
+    It is a block-styled editor
+  </li>
+  <li
+    className="item-class-name"
+  >
+    It returns clean data output in JSON
+  </li>
+  <li
+    className="item-class-name"
+  >
+    Designed to be extendable and pluggable with a simple API
+  </li>
+</ul>
+`;
+
+exports[`Convert EditorJS data to JSX render lists should render lists with children 1`] = `
+<ul
+  className="class-name"
+>
+  <li
+    className="item-class-name"
+  >
+    It is a block-styled editor
+  </li>
+  <li
+    className="item-class-name"
+  >
+    It returns clean data output in JSON
+  </li>
+  <li
+    className="item-class-name"
+  >
+    Designed to be extendable and pluggable with a simple API
+  </li>
+</ul>
 `;
 
 exports[`Convert EditorJS data to JSX render paragraph should render a pragraph with className 1`] = `
