@@ -1,7 +1,7 @@
 import React from "react";
 
 function RenderParagraph({block, options={}}){
-    const {className} = options
+    const {className, HtmlParser} = options
     let receivedBlock;
     if(typeof block === "string"){
         receivedBlock = JSON.parse(block)
@@ -16,11 +16,16 @@ function RenderParagraph({block, options={}}){
     const {type, data: {text}} = receivedBlock
     
     if(type === "paragraph"){
-        if (className){
-            return <p className={className}>{text}</p>
+        if (className && HtmlParser){
+            return <p className={className}>{ HtmlParser(text) }</p>
         }
 
-        return <p>{text}</p>
+        if(HtmlParser){
+            return <p>{ HtmlParser(text) }</p>
+        }
+
+        return <p>{ text }</p>
+
     }
 }
 

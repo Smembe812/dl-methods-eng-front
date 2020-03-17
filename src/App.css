@@ -15,6 +15,17 @@
         align-self: start;
       }
 
+      .typography__paragraph a{
+        text-decoration: none;
+        border-bottom: solid rgb(46, 104, 212);
+        color: rgb(46, 104, 212);
+      }
+
+      .typography__paragraph a:hover{
+        background: rgb(46, 104, 212);
+        color: #fafafa;
+      }
+
       .input__title{
         background: #fafafa;
         border: none;

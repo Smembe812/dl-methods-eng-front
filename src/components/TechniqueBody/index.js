@@ -188,7 +188,10 @@ export default function TechniqieBody({TextEditor}) {
             <setion id="description">
               <EditorToJSX
                   data={description} 
-                  options={{className:"class-name"}}/>
+                  options={{
+                    headerClassName:"typography__heading-six",
+                    paragraphClassName: "typography__paragraph"
+                  }}/>
             </setion>
             <section id="motivation">
               <h5 className="typography__heading-five">
@@ -196,7 +199,10 @@ export default function TechniqieBody({TextEditor}) {
               </h5>
               <EditorToJSX
                     data={motivation} 
-                    options={{className:"class-name"}}/>
+                    options={{
+                      headerClassName:"typography__heading-six",
+                      paragraphClassName: "typography__paragraph"
+                    }}/>
             </section>
             <section id="steps">
               <h5 className="typography__heading-five">
@@ -204,7 +210,10 @@ export default function TechniqieBody({TextEditor}) {
               </h5>
               <EditorToJSX
                     data={steps} 
-                    options={{className:"class-name"}}/>
+                    options={{
+                      headerClassName:"typography__heading-six",
+                      paragraphClassName: "typography__paragraph"
+                    }}/>
             </section>
           </>
               
