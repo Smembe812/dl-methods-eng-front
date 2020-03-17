@@ -20,14 +20,27 @@ function RenderList({block, children, options={}}){
             return renderUnorderdList(items, {className, classNameItem})
         }
 
+        if(style === "ordered" && !children){
+            return renderOrderdList(items, {className, classNameItem})
+        }
+
         if(children){
-            if (className){
+            if (className && options.style === "unordered"){
                 return(
                     <ul className={className}>
                         {children}
                     </ul>
                 )
             }
+
+            if (className && options.style === "ordered"){
+                return(
+                    <ol className={className}>
+                        {children}
+                    </ol>
+                )
+            }
+
             return <ul>{children}</ul>
         }
         
@@ -35,14 +48,14 @@ function RenderList({block, children, options={}}){
     }
     
     function renderUnorderdList(items, options=null){
-        const listItems = items.map((item) => {
+        const listItems = items.map((item, key) => {
             if(options && classNameItem){
                 return <RenderListItem 
-                            options={{className: classNameItem}}>
+                            options={{className: classNameItem}} key={key}>
                             {item}
                         </RenderListItem>
             }
-            return <RenderListItem>{item}</RenderListItem>
+            return <RenderListItem key={key}>{item}</RenderListItem>
         })
         if(options && className){
             return(
@@ -57,7 +70,30 @@ function RenderList({block, children, options={}}){
             </ul>
         )
     }
-    function renderOrderdList(){}
+    function renderOrderdList(items, options=null){
+        const listItems = items.map((item, key) => {
+            if(options && classNameItem){
+                return <RenderListItem 
+                            options={{className: classNameItem}} key={key}>
+                            {item}
+                        </RenderListItem>
+            }
+            return <RenderListItem key={key}>{item}</RenderListItem>
+        })
+        if(options && className){
+            return(
+                <ol className={className}>
+                    {listItems}
+                </ol>
+            )
+        }
+        return(
+            <ol>
+                {listItems}
+            </ol>
+        )
+
+    }
 }
 
 export default RenderList

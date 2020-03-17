@@ -1,21 +1,21 @@
 import React from "react";
 
-function RenderListItem({item, options={}, children}){
+function RenderListItem({item, key, options={}, children}){
     const {className} = options
 
     if(typeof item === "string"){
         if (className){
-            return <li className={className}>{item}</li>
+            return <li className={className} key={key}>{item}</li>
         }
 
-        return <li>{item}</li>
+        return <li key={key}>{item}</li>
     }
 
     if(children){
         if (className){
-            return <li className={className}>{children}</li>
+            return <li className={className} key={key}>{children}</li>
         }
-        return <li>{children}</li>
+        return <li key={key}>{children}</li>
     }
 }
 

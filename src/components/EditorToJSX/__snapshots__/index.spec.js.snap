@@ -198,6 +198,28 @@ exports[`Convert EditorJS data to JSX render lists should render lists with chil
 </ul>
 `;
 
+exports[`Convert EditorJS data to JSX render lists should render ordered list with children 1`] = `
+<ol
+  className="class-name"
+>
+  <li
+    className="item-class-name"
+  >
+    It is a block-styled editor
+  </li>
+  <li
+    className="item-class-name"
+  >
+    It returns clean data output in JSON
+  </li>
+  <li
+    className="item-class-name"
+  >
+    Designed to be extendable and pluggable with a simple API
+  </li>
+</ol>
+`;
+
 exports[`Convert EditorJS data to JSX render paragraph should render a pragraph with className 1`] = `
 <p
   className="class-name"

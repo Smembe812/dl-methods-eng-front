@@ -182,6 +182,18 @@ describe('Convert EditorJS data to JSX', () => {
             }
         }
 
+        const orderedListBlock = {
+            "type" : "list",
+            "data" : {
+                "style" : "ordered",
+                "items" : [
+                    "It is a block-styled editor",
+                    "It returns clean data output in JSON",
+                    "Designed to be extendable and pluggable with a simple API"
+                ]
+            }
+        }
+
         it("should render lists", (done) => {
             const tree = renderer
             .create(
@@ -200,12 +212,16 @@ describe('Convert EditorJS data to JSX', () => {
             .create(
                 <RenderList block={listBlock}
                     options={
-                        {className:"class-name"}
+                        {
+                            className:"class-name",
+                            style: "unordered"
+                        }
                     }>
                         {
                             listBlock.data.items.map(
-                                item => (<RenderListItem 
-                                            item={item} 
+                                (item, key) => (<RenderListItem 
+                                            item={item}
+                                            key={key} 
                                             options={{className:"item-class-name"}}/>))}
 
                 </RenderList>
@@ -213,6 +229,32 @@ describe('Convert EditorJS data to JSX', () => {
             .toJSON();
         expect(tree).toMatchSnapshot();
         done()
+        })
+
+        it("should render ordered list with children", (done) => {
+            const tree = renderer
+            .create(
+                <RenderList block={orderedListBlock}
+                    options={
+                        {
+                            className:"class-name",
+                            style: "ordered"
+                        }
+                    }>
+                        {
+                            orderedListBlock.data.items.map((item, key) => (
+                                <RenderListItem 
+                                    item={item}
+                                    key={key} 
+                                    options={{className:"item-class-name"}}/>
+                            )
+                        )}
+
+                </RenderList>
+                )
+            .toJSON();
+            expect(tree).toMatchSnapshot();
+            done()
         })
 
         it("should render list item", (done) => {

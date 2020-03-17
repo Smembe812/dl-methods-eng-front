@@ -9,27 +9,30 @@ import RenderTable from './RenderTable'
 
 function EditorToJSX({data, options, children}){
     const {blocks} = data
+    if (blocks){
+        const converted = blocks.map(block => {
+            const {type} = block
+            if (type === "header"){
+                return <RenderHeader block={block}/>
+            }
+            if (type === "list"){
+                return <RenderList block={block}/>
+            }
+            if (type === "paragraph"){
+                return  <RenderParagraph block={block}/>
+            }
+    
+            if (type === "table"){
+                return <RenderTable block={block}/>
+            }
+    
+            return null
+        })
+    
+        return converted
+    }
 
-    const converted = blocks.map(block => {
-        const {type} = block
-        if (type === "header"){
-            return <RenderHeader block={block}/>
-        }
-        if (type === "list"){
-            return <RenderList block={block}/>
-        }
-        if (type === "paragraph"){
-            return  <RenderParagraph block={block}/>
-        }
-
-        if (type === "table"){
-            return <RenderTable block={block}/>
-        }
-
-        return null
-    })
-
-    return converted
+    return null
 }
 
 export default EditorToJSX

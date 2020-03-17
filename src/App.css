@@ -15,6 +15,14 @@
         align-self: start;
       }
 
+      .input__title{
+        background: #fafafa;
+        border: none;
+        border-left: solid;
+        padding-left: 1em;
+        font-weight: bold;
+      }
+
       .readable {
         width: 65% !important;
         margin: auto;
