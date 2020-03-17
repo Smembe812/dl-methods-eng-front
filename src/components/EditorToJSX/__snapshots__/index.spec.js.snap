@@ -45,6 +45,53 @@ exports[`Convert EditorJS data to JSX Render table should render table 1`] = `
 </table>
 `;
 
+exports[`Convert EditorJS data to JSX Render table should render table with className 1`] = `
+<table
+  className="class-name"
+>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Age
+    </th>
+  </tr>
+  <tr>
+    <td>
+      Paul
+    </td>
+    <td>
+      12
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Jude
+    </td>
+    <td>
+      13
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Hilda
+    </td>
+    <td>
+      10
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Rossana
+    </td>
+    <td>
+      11
+    </td>
+  </tr>
+</table>
+`;
+
 exports[`Convert EditorJS data to JSX render header should render h1 with className 1`] = `
 <h1
   className="class-name"

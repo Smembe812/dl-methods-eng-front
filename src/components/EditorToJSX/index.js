@@ -22,6 +22,10 @@ function EditorToJSX({data, options, children}){
             return  <RenderParagraph block={block}/>
         }
 
+        if (type === "table"){
+            return <RenderTable block={block}/>
+        }
+
         return null
     })
 

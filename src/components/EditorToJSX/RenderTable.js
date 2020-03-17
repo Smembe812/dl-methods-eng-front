@@ -17,10 +17,21 @@ function RenderTable({block, children, options={}}){
     if (type === "table" && content instanceof Array){
 
         const [tableHeading, ...tableBody] = content
+
+        if (className){
+            return (
+                <table className={className}>
+                    {renderHeaderRow(tableHeading)}
+
+                    {renderRestOfBody(tableBody)}
+                </table>
+            )
+        }
+
         return (
             <table>
                 {renderHeaderRow(tableHeading)}
-                
+
                 {renderRestOfBody(tableBody)}
             </table>
         )

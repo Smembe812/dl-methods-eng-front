@@ -354,6 +354,15 @@ describe('Convert EditorJS data to JSX', () => {
         it("should render table", (done) => {
             const tree = renderer
                     .create(
+                        <RenderTable block={tableBlock}/>)
+                    .toJSON();
+            expect(tree).toMatchSnapshot();
+            done()
+        })
+
+        it("should render table with className", (done) => {
+            const tree = renderer
+                    .create(
                         <RenderTable block={tableBlock}
                             options={{className:"class-name"}}/>)
                     .toJSON();
