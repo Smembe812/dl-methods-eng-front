@@ -7,7 +7,8 @@ import {
     RenderHeader, 
     RenderParagraph,
     RenderList,
-    RenderListItem
+    RenderListItem,
+    RenderTable
 } from './index'
 
 import EditorToJSX from './index'
@@ -162,8 +163,8 @@ describe('Convert EditorJS data to JSX', () => {
                         <RenderParagraph block={paragraphBlock[0]}
                             options={{className:"class-name"}}/>)
                     .toJSON();
-                expect(tree).toMatchSnapshot();
-                done()
+            expect(tree).toMatchSnapshot();
+            done()
         })
         
 
@@ -336,7 +337,30 @@ describe('Convert EditorJS data to JSX', () => {
     })
     it.todo("should render")
     it.todo("should render img")
-    it.todo("should render table")
+    describe("Render table", () => {
+        const tableBlock = {
+            type: "table",
+            data:{
+                content: [
+                    ["Name", "Age"],          
+                    ["Paul", "12"],            
+                    ["Jude", "13"],         
+                    ["Hilda", "10"],         
+                    ["Rossana", "11"]
+                ]
+            }
+        }
+
+        it("should render table", (done) => {
+            const tree = renderer
+                    .create(
+                        <RenderTable block={tableBlock}
+                            options={{className:"class-name"}}/>)
+                    .toJSON();
+            expect(tree).toMatchSnapshot();
+            done()
+        })
+    })
     it.todo("should render checklist")
     it("Should always run" , (done) => {
         expect(1).toBe(1)

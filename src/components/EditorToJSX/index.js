@@ -5,6 +5,7 @@ import RenderList from './RenderList'
 import RenderListItem from './RenderListItem'
 import RenderHeader from './RenderHeader'
 import RenderParagraph from './RenderParagraph'
+import RenderTable from './RenderTable'
 
 function EditorToJSX({data, options, children}){
     const {blocks} = data
@@ -33,5 +34,6 @@ export {
     RenderHeader, 
     RenderList, 
     RenderListItem, 
-    RenderParagraph
+    RenderParagraph,
+    RenderTable
 }
