@@ -1,7 +1,5 @@
 //Todo convert Editor JS data to JSX elements & content
 import React from 'react'
-import ReactHtmlParser from 'react-html-parser';
-
 
 import RenderList from './RenderList'
 import RenderListItem from './RenderListItem'
@@ -32,8 +30,7 @@ function EditorToJSX({data, options={}, children}){
                 return  <RenderParagraph block={block} 
                             options={
                                 {
-                                    className:paragraphClassName,
-                                    HtmlParser: ReactHtmlParser
+                                    className:paragraphClassName
                                 }
                             }
                             />

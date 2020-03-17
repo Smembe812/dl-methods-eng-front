@@ -6,7 +6,7 @@
     "eject": "react-scripts eject",
     "build": "react-scripts build",
     "start": "react-scripts start",
-    "test": "jest test"
+    "test": "jest"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^17.0.0",

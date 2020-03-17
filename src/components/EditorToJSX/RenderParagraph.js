@@ -1,4 +1,5 @@
 import React from "react";
+import ReactHtmlParser from 'react-html-parser';
 
 function RenderParagraph({block, options={}}){
     const {className, HtmlParser} = options
@@ -16,16 +17,12 @@ function RenderParagraph({block, options={}}){
     const {type, data: {text}} = receivedBlock
     
     if(type === "paragraph"){
-        if (className && HtmlParser){
-            return <p className={className}>{ HtmlParser(text) }</p>
+        if (className){
+            return <p className={className}>{ ReactHtmlParser(text) }</p>
         }
 
-        if(HtmlParser){
-            return <p>{ HtmlParser(text) }</p>
-        }
-
-        return <p>{ text }</p>
-
+        return <p>{ ReactHtmlParser(text) }</p>
+       
     }
 }
 
