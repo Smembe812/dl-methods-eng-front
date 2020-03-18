@@ -2,7 +2,7 @@ import React from "react";
 import ReactHtmlParser from 'react-html-parser';
 
 function RenderParagraph({block, options={}}){
-    const {className, HtmlParser} = options
+    const { className } = options
     let receivedBlock;
     if(typeof block === "string"){
         receivedBlock = JSON.parse(block)
