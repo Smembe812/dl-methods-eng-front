@@ -36,6 +36,8 @@ const TechniquesPage = () => {
   const classes = useStyles();
   const [inputData, saveInputData] = useState({})
 
+  console.log(process.env.REACT_APP_TEST_VAR);
+
   return (
   
   <div className={classes.root}>

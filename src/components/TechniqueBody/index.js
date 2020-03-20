@@ -9,6 +9,8 @@ const useStyles = makeStyles({
   },
 });
 
+const BASE_URL = process.env.REACT_APP_BACKEND_SERVER
+
 export default function TechniqieBody({TextEditor}) {
   const classes = useStyles();
   
@@ -139,7 +141,7 @@ export default function TechniqieBody({TextEditor}) {
   }
   
   async function loadData(){
-    const {data} =  await axios.get(`http://localhost:3000/api/techniques`)
+    const {data} =  await axios.get(`${BASE_URL}techniques`)
     const latestTech = data.pop()
 
     const values = {

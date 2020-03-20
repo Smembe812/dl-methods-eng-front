@@ -11,7 +11,6 @@ import RenderTable from './RenderTable'
 function EditorToJSX({data, options={}, children}){
     const {headerClassName, paragraphClassName} = options
 
-    console.log(headerClassName, paragraphClassName)
     const {blocks} = data
     if (blocks){
         const converted = blocks.map(block => {
