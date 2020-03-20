@@ -170,7 +170,7 @@ export default function TechniqieBody({TextEditor}) {
       how: JSON.stringify(steps)
     }
     
-    axios.post(`http://localhost:3000/api/techniques`, payload)
+    axios.post(`${BASE_URL}techniques`, payload)
     .then( (data) => console.log(data))
     
   }
