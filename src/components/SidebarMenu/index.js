@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import ToCLink from '../TableOfContents/ToC-Link'
-import TocItem from '../TableOfContents/ToC-Item'
+import SidebarMenuLink from "./SidebarMenuLink"
 
 function SidebarMenu({data}) {
     function renderListItems(data){
 
         const items = data.map((item, key) => {
-            return <TocItem key={key}>
-                        <ToCLink>
-                        {item}
-                        </ToCLink>
-                    </TocItem>   
+
+            return  <SidebarMenuLink
+                            key={key}
+                            title={item}
+                            to={`/${item.toLowerCase()}`}
+                        />   
         })
 
         return items
@@ -28,7 +28,5 @@ function SidebarMenu({data}) {
     return null
 
 }
-
-
 
 export default SidebarMenu

@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
+import { MemoryRouter } from "react-router-dom";
 import renderer from 'react-test-renderer';
 
 import SidebarMenu from './index'
@@ -43,8 +44,11 @@ describe('Render Sidebar', () => {
 
         const tree = renderer
         .create(
-        <SidebarMenu 
-            data={sidebarContent}/>)
+            <MemoryRouter initialEntries={['/']}>
+                <SidebarMenu 
+                    data={sidebarContent}/>
+            </MemoryRouter>
+        )
         .toJSON();
         expect(tree).toMatchSnapshot();
         done()

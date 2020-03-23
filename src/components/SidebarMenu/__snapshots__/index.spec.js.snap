@@ -6,11 +6,11 @@ exports[`Render Sidebar render sidebar 1`] = `
 >
   <li
     className="toc__item"
-    onClick={[Function]}
   >
     <a
+      aria-current={null}
       className="toc__a"
-      href="#"
+      href="/processes"
       onClick={[Function]}
     >
       Processes
@@ -18,11 +18,11 @@ exports[`Render Sidebar render sidebar 1`] = `
   </li>
   <li
     className="toc__item"
-    onClick={[Function]}
   >
     <a
+      aria-current={null}
       className="toc__a"
-      href="#"
+      href="/process elements"
       onClick={[Function]}
     >
       Process Elements
@@ -30,11 +30,11 @@ exports[`Render Sidebar render sidebar 1`] = `
   </li>
   <li
     className="toc__item"
-    onClick={[Function]}
   >
     <a
+      aria-current={null}
       className="toc__a"
-      href="#"
+      href="/techniques"
       onClick={[Function]}
     >
       Techniques
@@ -42,11 +42,11 @@ exports[`Render Sidebar render sidebar 1`] = `
   </li>
   <li
     className="toc__item"
-    onClick={[Function]}
   >
     <a
+      aria-current={null}
       className="toc__a"
-      href="#"
+      href="/experiences"
       onClick={[Function]}
     >
       Experiences
