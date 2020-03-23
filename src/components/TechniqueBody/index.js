@@ -192,7 +192,8 @@ export default function TechniqieBody({TextEditor}) {
                   data={description} 
                   options={{
                     headerClassName:"typography__heading-six",
-                    paragraphClassName: "typography__paragraph"
+                    paragraphClassName: "typography__paragraph",
+                    listClassName: "typography__list"
                   }}/>
             </section>
             <section id="motivation">
@@ -214,7 +215,8 @@ export default function TechniqieBody({TextEditor}) {
                     data={steps} 
                     options={{
                       headerClassName:"typography__heading-six",
-                      paragraphClassName: "typography__paragraph"
+                      paragraphClassName: "typography__paragraph",
+                      listClassName: "typography__list"
                     }}/>
             </section>
           </>

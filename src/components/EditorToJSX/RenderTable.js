@@ -48,20 +48,20 @@ function RenderTable({block, children, options={}}){
     function renderHeaderRow(tableHeading){
         return (
             <tr>
-                {tableHeading.map(col => {
-                    return <th>{col}</th>
+                {tableHeading.map((col, key) => {
+                    return <th key={key}>{col}</th>
                 })}
             </tr>
         )
     }
 
     function renderRestOfBody(tableBody){
-        return tableBody.map(row => {
-            const tr = row.map(col => { 
-                return <td>{col}</td>
+        return tableBody.map((row, rowKey) => {
+            const tr = row.map((col, key) => { 
+                return <td key={key}>{col}</td>
             })
 
-            return <tr>{tr}</tr>
+            return <tr key={rowKey}>{tr}</tr>
         })
     }
     

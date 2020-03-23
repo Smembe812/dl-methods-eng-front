@@ -218,11 +218,11 @@ describe('Convert EditorJS data to JSX', () => {
                         }
                     }>
                         {
-                            listBlock.data.items.map(
-                                (item, key) => (<RenderListItem 
-                                            item={item}
-                                            key={key} 
-                                            options={{className:"item-class-name"}}/>))}
+                            listBlock.data.items.map((item, key) => (
+                                <RenderListItem 
+                                    item={item}
+                                    indexKey={key} 
+                                    options={{className:"item-class-name"}}/>))}
 
                 </RenderList>
                 )
@@ -245,7 +245,7 @@ describe('Convert EditorJS data to JSX', () => {
                             orderedListBlock.data.items.map((item, key) => (
                                 <RenderListItem 
                                     item={item}
-                                    key={key} 
+                                    indexKey={key} 
                                     options={{className:"item-class-name"}}/>
                             )
                         )}
@@ -260,7 +260,8 @@ describe('Convert EditorJS data to JSX', () => {
         it("should render list item", (done) => {
             const tree = renderer
             .create(
-                <RenderListItem item={listBlock.data.items[0]}
+                <RenderListItem 
+                    item={listBlock.data.items[0]}
                     options={{className:"class-name"}}/>)
             .toJSON();
             expect(tree).toMatchSnapshot();

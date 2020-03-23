@@ -9,8 +9,8 @@ import RenderTable from './RenderTable'
 
 
 function EditorToJSX({data, options={}, children}){
-    const {headerClassName, paragraphClassName} = options
-
+    const {headerClassName, paragraphClassName, listClassName} = options
+    
     const {blocks} = data
     if (blocks){
         const converted = blocks.map(block => {
@@ -23,14 +23,17 @@ function EditorToJSX({data, options={}, children}){
                             />
             }
             if (type === "list"){
-                return <RenderList block={block}/>
+                return <RenderList 
+                            block={block}
+                            options={
+                                {className:listClassName}
+                            }/>
             }
             if (type === "paragraph"){
-                return  <RenderParagraph block={block} 
+                return  <RenderParagraph 
+                            block={block} 
                             options={
-                                {
-                                    className:paragraphClassName
-                                }
+                                {className:paragraphClassName}
                             }
                             />
             }

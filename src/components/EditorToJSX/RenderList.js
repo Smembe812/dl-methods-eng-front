@@ -1,7 +1,7 @@
 import React from "react";
 import RenderListItem from './RenderListItem'
 
-function RenderList({block, children, options={}}){
+function RenderList({block, options={}, children}){
     const {className, classNameItem} = options
     let receivedBlock;
     if(typeof block === "string"){
@@ -17,11 +17,11 @@ function RenderList({block, children, options={}}){
     
     if(type === "list"){
         if(style === "unordered" && !children){
-            return renderUnorderdList(items, {className, classNameItem})
+            return renderUnorderedList(items, {className, classNameItem})
         }
 
         if(style === "ordered" && !children){
-            return renderOrderdList(items, {className, classNameItem})
+            return renderOrderedList(items, {className, classNameItem})
         }
 
         if(children){
@@ -47,16 +47,18 @@ function RenderList({block, children, options={}}){
         return null
     }
     
-    function renderUnorderdList(items, options=null){
+    function renderUnorderedList(items, options=null){
         const listItems = items.map((item, key) => {
             if(options && classNameItem){
                 return <RenderListItem 
-                            options={{className: classNameItem}} key={key}>
+                            options={{className: classNameItem}} 
+                            indexKey={key}>
                             {item}
                         </RenderListItem>
             }
-            return <RenderListItem key={key}>{item}</RenderListItem>
+            return <RenderListItem indexKey={key}>{item}</RenderListItem>
         })
+        
         if(options && className){
             return(
                 <ul className={className}>
@@ -64,21 +66,24 @@ function RenderList({block, children, options={}}){
                 </ul>
             )
         }
+
         return(
             <ul>
                 {listItems}
             </ul>
         )
     }
-    function renderOrderdList(items, options=null){
+    
+    function renderOrderedList(items, options=null){
         const listItems = items.map((item, key) => {
             if(options && classNameItem){
                 return <RenderListItem 
-                            options={{className: classNameItem}} key={key}>
+                            options={{className: classNameItem}} 
+                            indexKey={key}>
                             {item}
                         </RenderListItem>
             }
-            return <RenderListItem key={key}>{item}</RenderListItem>
+            return <RenderListItem indexKey={key}>{item}</RenderListItem>
         })
         if(options && className){
             return(
