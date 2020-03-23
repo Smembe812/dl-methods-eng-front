@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Sidebar render sidebar 1`] = `
+<ul
+  className="toc"
+>
+  <li
+    className="toc__item"
+    onClick={[Function]}
+  >
+    <a
+      className="toc__a"
+      href="#"
+      onClick={[Function]}
+    >
+      Processes
+    </a>
+  </li>
+  <li
+    className="toc__item"
+    onClick={[Function]}
+  >
+    <a
+      className="toc__a"
+      href="#"
+      onClick={[Function]}
+    >
+      Process Elements
+    </a>
+  </li>
+  <li
+    className="toc__item"
+    onClick={[Function]}
+  >
+    <a
+      className="toc__a"
+      href="#"
+      onClick={[Function]}
+    >
+      Techniques
+    </a>
+  </li>
+  <li
+    className="toc__item"
+    onClick={[Function]}
+  >
+    <a
+      className="toc__a"
+      href="#"
+      onClick={[Function]}
+    >
+      Experiences
+    </a>
+  </li>
+</ul>
+`;

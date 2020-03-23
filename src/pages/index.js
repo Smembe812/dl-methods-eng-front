@@ -11,6 +11,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText'
 import TextEditor from '../components/EditorJS'
 import EditorToJSX from '../components/EditorToJSX'
+import SidebarMenu from '../components/SidebarMenu'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,7 +37,12 @@ const TechniquesPage = () => {
   const classes = useStyles();
   const [inputData, saveInputData] = useState({})
 
-  console.log(process.env.REACT_APP_TEST_VAR);
+  const sidebarContent = [
+      'Processes', 
+      'Process Elements', 
+      'Techniques', 
+      'Experiences'
+  ]
 
   return (
   
@@ -52,20 +58,21 @@ const TechniquesPage = () => {
         }}
       >
         <div className={classes.toolbar} />
+          <SidebarMenu data={sidebarContent}/>
         <List>
-          {['Processes', 'Process Elements', 'Techniques', 'Experieces'].map((text, index) => (
+          {/* {['Processes', 'Process Elements', 'Techniques', 'Experieces'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))} */}
         </List>
-        <Divider />
+        {/* <Divider /> */}
         <List>
-          {['Knowledge Resources', 'Examples', 'Templates'].map((text, index) => (
+          {/* {['Knowledge Resources', 'Examples', 'Templates'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))} */}
         </List>
     </Drawer>
     <div className="grid" style={{width: '100%'}}>
