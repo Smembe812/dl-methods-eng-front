@@ -187,14 +187,14 @@ export default function TechniqieBody({TextEditor}) {
             <h4 className="typography__heading-four">
               {title}
             </h4>
-            <setion id="description">
+            <section id="description">
               <EditorToJSX
                   data={description} 
                   options={{
                     headerClassName:"typography__heading-six",
                     paragraphClassName: "typography__paragraph"
                   }}/>
-            </setion>
+            </section>
             <section id="motivation">
               <h5 className="typography__heading-five">
                 Motivation

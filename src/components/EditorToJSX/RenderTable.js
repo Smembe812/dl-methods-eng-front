@@ -21,18 +21,24 @@ function RenderTable({block, children, options={}}){
         if (className){
             return (
                 <table className={className}>
-                    {renderHeaderRow(tableHeading)}
-
-                    {renderRestOfBody(tableBody)}
+                    <thead>
+                        {renderHeaderRow(tableHeading)}
+                    </thead>
+                    <tbody>
+                        {renderRestOfBody(tableBody)}
+                    </tbody>
                 </table>
             )
         }
 
         return (
             <table>
-                {renderHeaderRow(tableHeading)}
-
-                {renderRestOfBody(tableBody)}
+                <thead>
+                        {renderHeaderRow(tableHeading)}
+                    </thead>
+                    <tbody>
+                        {renderRestOfBody(tableBody)}
+                    </tbody>
             </table>
         )
     }
