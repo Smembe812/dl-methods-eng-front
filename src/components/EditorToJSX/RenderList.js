@@ -52,11 +52,11 @@ function RenderList({block, options={}, children}){
             if(options && classNameItem){
                 return <RenderListItem 
                             options={{className: classNameItem}} 
-                            indexKey={key}>
+                            key={item}>
                             {item}
                         </RenderListItem>
             }
-            return <RenderListItem indexKey={key}>{item}</RenderListItem>
+            return <RenderListItem key={item}>{item}</RenderListItem>
         })
         
         if(options && className){
@@ -79,11 +79,11 @@ function RenderList({block, options={}, children}){
             if(options && classNameItem){
                 return <RenderListItem 
                             options={{className: classNameItem}} 
-                            indexKey={key}>
+                            key={item}>
                             {item}
                         </RenderListItem>
             }
-            return <RenderListItem indexKey={key}>{item}</RenderListItem>
+            return <RenderListItem key={item}>{item}</RenderListItem>
         })
         if(options && className){
             return(
