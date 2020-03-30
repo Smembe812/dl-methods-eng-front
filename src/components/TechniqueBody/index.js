@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios'
 import EditorToJSX from '../EditorToJSX'
 
+import RenderHeader from '../EditorToJSX/RenderHeader'
+import RenderParagraph from '../EditorToJSX/RenderParagraph'
+
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -20,6 +23,7 @@ export default function TechniqieBody({TextEditor}) {
   const [steps, setSteps] = useState({})
   const [isRead, setIsRead] = useState(true)
   const [isEditTitle, setIsEditTitle] = useState(false)
+  const [techniques, setTechniques] = useState([])
 
   
   useEffect(() => {
@@ -150,10 +154,52 @@ export default function TechniqieBody({TextEditor}) {
       motivation: JSON.parse(latestTech.aim),
       steps: JSON.parse(latestTech.how)
     }
-    setTitle(values.title)
-    setDescription(values.description)
-    setMotivation(values.motivation)
-    setSteps(values.steps)
+    // setTitle(values.title)
+    // setDescription(values.description)
+    // setMotivation(values.motivation)
+    // setSteps(values.steps)
+
+    setTechniques(data)
+  }
+
+  console.log(techniques)
+
+  const renderTechniques = (techniques) => {
+
+    return techniques.map( ({title, description, how, id}) => {
+      description = JSON.parse(description)
+      
+      if (how && description){
+        return (
+          <div className="item grid__col-3" key={id}>
+            <div className="card">
+                  <div className="card__header">
+                      <span className="card__header-text">Technique</span>
+                  </div>
+                  <div className="card__body--grid">
+                      <h5 className="card__title">
+                          {title}
+                      </h5>
+                      <EditorToJSX 
+                        data={description}
+                        options={
+                          {paragraphClassName:"card__text"}
+                        }
+                        />
+                  </div>
+                  <div className="card__footer">
+                    <a className="link" href="#">explore more</a>
+                  </div>
+              </div>
+          </div>
+        )
+      }
+
+      return <></>
+
+    }
+
+    )
   }
         
   console.log({title, description, motivation, steps})
@@ -178,160 +224,36 @@ export default function TechniqieBody({TextEditor}) {
 
   return (
     <>
-      <button className="dl-btn dl-btn__dark" 
-          onClick={toggleIsRead}>{isRead ? "Edit" : "Read"}</button>
-      <div className={`readable ${classes.root}`}>
-      {
-        isRead ? 
-          <>
-            <h4 className="typography__heading-four">
-              {title}
-            </h4>
-            <section id="description">
-              <EditorToJSX
-                  data={description} 
-                  options={{
-                    headerClassName:"typography__heading-six",
-                    paragraphClassName: "typography__paragraph",
-                    listClassName: "typography__list"
-                  }}/>
-            </section>
-            <section id="motivation">
-              <h5 className="typography__heading-five">
-                Motivation
-              </h5>
-              <EditorToJSX
-                    data={motivation} 
-                    options={{
-                      headerClassName:"typography__heading-six",
-                      paragraphClassName: "typography__paragraph"
-                    }}/>
-            </section>
-            <section id="steps">
-              <h5 className="typography__heading-five">
-                How
-              </h5>
-              <EditorToJSX
-                    data={steps} 
-                    options={{
-                      headerClassName:"typography__heading-six",
-                      paragraphClassName: "typography__paragraph",
-                      listClassName: "typography__list"
-                    }}/>
-            </section>
-          </>
-              
-          :
-
-        <>
-          <section id="title">
-            <div>
-              <span>
-                <h4 className="typography__heading-five">
-                  Title
-                </h4>
-                <input 
-                  onChange={handleOnTitleChange}
-                  value={title}
-                  type="text" 
-                  className="typography__heading-five input__title" 
-                  placeholder="Edit Title" 
-                  title="Click here to edit title"/>
-              
-              </span>
+      <div className="grid toolbar toolbar__box-shadow">
+        <div className="grid__box--uniform">
+            <div className="grid__col">
+                <div className="toolbar__title">
+                    <span className="toolbar__list-item-text">
+                        Techniques >
+                    </span>
+                </div>
             </div>
-          </section>
-          <section id="description">
-            <div>
-              <h4 className="typography__heading-five">Introduction</h4>
-              <div className="text-editor-container">
-                <TextEditor holder="description-editor"
-                  data={description}
-                  onChange={(e) => setDescription(e)}
-                  />
-              </div>
-            </div>
-          </section>
-          <section id="motivation">
-            <h5 className="typography__heading-five">Motivation</h5>
-            <div className="text-editor-container">
-              <TextEditor holder="motivation-editor"
-                data={motivation}
-                onData={(data) => console.log(data)}
-                onChange={(e) => setMotivation(e)}
-                />
-            </div>
-            {/* <p className="typography__paragraph">
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-              unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-              dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam. body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-              unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-              dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-              
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-              unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-              dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-            </p> */}
+            <div className="toolbar__list grid__col flex flex__justify-end">
+                <div className="toolbar__list-item">
+                    <i className="material-icons">tune</i>
+                </div>
+                <div className="toolbar__list-item">
+                    <i className="material-icons">view_module</i>
+                </div>
+                <div className="toolbar__list-item">
+                    <i className="material-icons">view_list</i>
+                </div>
+            </div>           
+        </div>
+    </div>
 
-          </section>
-          <section id="steps">
+    <div className="grid">
+        <div className="grid__box grid__gap">
 
-            <h5 className="typography__heading-five">
-              How
-            </h5>
-            <div className="text-editor-container">
-                <TextEditor holder="steps-editor"
-                  data={steps}
-                  onData={(data) => console.log(data)}
-                  onChange={(e) => setSteps(e)}
-                />
-              </div>
-            {/* <h6 className="typography__heading-six">
-              Step 1
-              </h6>
-            <p className="typography__paragraph">
-            body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-              unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-              dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-              unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-              dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-            </p>
-            
-            <h6 className="typography__heading-six">
-            Step 2
-            </h6>
-            <p className="typography__paragraph">
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-              unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-              dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-              unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-              dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-              </p>
-            <h6 className="typography__heading-six">
-            Step 3
-            </h6>
-            <p className="typography__paragraph">
-            body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-            unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-            dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-            
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
-              unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam
-              dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.
-            </p> */}
-          </section>
-
-          <br/>
-          <br/>
-          <button className="dl-btn dl-btn__dark" onClick={handleSave}>Save</button>
-          <button className="dl-btn dl-btn__secondary" onClick={loadData}>load</button>
-        </>
-      }
-      </div>
+            {renderTechniques(techniques)}
+        </div>
+    </div>
+     
     </>
   );
 }

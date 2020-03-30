@@ -76,18 +76,12 @@ const TechniquesPage = () => {
         </List>
     </Drawer>
     <div className="grid" style={{width: '100%'}}>
-      <main className={`grid__col-9 ${classes.content}`}>
+      <main className={`grid__col-12 ${classes.content}`}>
         <div className={classes.toolbar} />
         <div className="dl-container">
             <TechniqieBody TextEditor={TextEditor}/>
         </div> 
       </main>
-      <aside className={`grid__col-3 ${classes.content} sidebar`}>
-        <div className={classes.toolbar} />
-        <div className="dl-container">
-          <TableOfContents/>
-        </div>
-      </aside>
 
     </div>
 
