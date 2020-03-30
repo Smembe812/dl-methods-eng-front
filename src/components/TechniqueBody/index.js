@@ -174,7 +174,7 @@ export default function TechniqieBody({TextEditor}) {
       if (how && description){
         return (
           <div className={viewConfig === "grid" ? "item grid__col-3" : "item grid__col-12"} key={id}>
-            <div className={viewConfig === "grid" ? "card" : "card card__list"}>
+            <div className={viewConfig === "grid" ? "card card__grid" : "card card__list"}>
                   <div className="card__header">
                       <span className="card__header-text">Technique</span>
                   </div>
@@ -230,7 +230,7 @@ export default function TechniqieBody({TextEditor}) {
             <div className="grid__col">
                 <div className="toolbar__title">
                     <span className="toolbar__list-item-text">
-                        Techniques >
+                        Techniques > <a className="link" href="#">explore more</a>
                     </span>
                 </div>
             </div>
