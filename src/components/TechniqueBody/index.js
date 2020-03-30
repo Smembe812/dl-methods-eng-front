@@ -25,6 +25,8 @@ export default function TechniqieBody({TextEditor}) {
   const [isEditTitle, setIsEditTitle] = useState(false)
   const [techniques, setTechniques] = useState([])
 
+  const [viewConfig, setViewConfig] = useState("grid")
+
   
   useEffect(() => {
     loadData()
@@ -171,12 +173,12 @@ export default function TechniqieBody({TextEditor}) {
       
       if (how && description){
         return (
-          <div className="item grid__col-3" key={id}>
-            <div className="card">
+          <div className={viewConfig === "grid" ? "item grid__col-3" : "item grid__col-12"} key={id}>
+            <div className={viewConfig === "grid" ? "card" : "card card__list"}>
                   <div className="card__header">
                       <span className="card__header-text">Technique</span>
                   </div>
-                  <div className="card__body--grid">
+                  <div className={viewConfig === "grid" ?"card__body--grid" : "card__body"}>
                       <h5 className="card__title">
                           {title}
                       </h5>
@@ -220,7 +222,6 @@ export default function TechniqieBody({TextEditor}) {
     .then( (data) => console.log(data))
     
   }
-  
 
   return (
     <>
@@ -237,17 +238,21 @@ export default function TechniqieBody({TextEditor}) {
                 <div className="toolbar__list-item">
                     <i className="material-icons">tune</i>
                 </div>
-                <div className="toolbar__list-item">
+                <div 
+                    className={viewConfig === "grid" ? "toolbar__list-item toolbar__list-item--active":  "toolbar__list-item"} 
+                    onClick={() => setViewConfig("grid")}> 
                     <i className="material-icons">view_module</i>
                 </div>
-                <div className="toolbar__list-item">
+                <div 
+                  className={viewConfig === "list" ? "toolbar__list-item toolbar__list-item--active":  "toolbar__list-item" }
+                  onClick={() => setViewConfig("list")}>
                     <i className="material-icons">view_list</i>
                 </div>
             </div>           
         </div>
     </div>
 
-    <div className="grid">
+    <div className="grid" style={{margin: (viewConfig === "grid" ? "unset" : "0 13%")}}>
         <div className="grid__box grid__gap">
 
             {renderTechniques(techniques)}
