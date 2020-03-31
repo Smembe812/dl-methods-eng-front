@@ -17,12 +17,17 @@ import {
 } from "react-router-dom";
 
 import './App.css'
+import TechniqueArticle from './components/TechniqueBody/article';
 
 
 const routes = [
+  // {
+  //   path: "/techiniques",
+  //   component: TechniqueArticle
+  // },
   {
     path: "/techniques",
-    component: TechniquesPage
+    component: TechniquesPage,
   },
   // {
   //   path: "/tacos",
@@ -97,6 +102,8 @@ function App() {
 
 
 function RouteWithSubRoutes(route) {
+
+  console.log(route.path)
   return (
     <>
       <Route

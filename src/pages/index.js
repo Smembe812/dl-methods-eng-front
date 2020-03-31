@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import Header from '../components/header'
 import TableOfContents from '../components/TableOfContents'
-import TechniqieBody from '../components/TechniqueBody'
+import TechniqueBody from '../components/TechniqueBody'
+import TechniqueArticle from '../components/TechniqueBody/article'
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +13,11 @@ import ListItemText from '@material-ui/core/ListItemText'
 import TextEditor from '../components/EditorJS'
 import EditorToJSX from '../components/EditorToJSX'
 import SidebarMenu from '../components/SidebarMenu'
+
+import {
+  Switch,
+  Route,
+} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,23 +39,26 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
 }));
 
-const TechniquesPage = () => {
+const TechniquesPage = ({routes}) => {
   const classes = useStyles();
   const [inputData, saveInputData] = useState({})
-
-  const sidebarContent = [
-      'Processes', 
-      'Process Elements', 
-      'Techniques', 
-      'Experiences'
-  ]
 
   return (
     <div className="grid" style={{width: '100%'}}>
       <main className={`grid__col-12 ${classes.content}`}>
         <div className={classes.toolbar} />
         <div className="dl-container">
-            <TechniqieBody TextEditor={TextEditor}/>
+            
+            <Switch>
+              <Route exact path="/techniques">
+                <TechniqueBody/>
+              </Route>
+              <Route
+                path="/techniques/:slug"
+                render={props => (
+                  <TechniqueArticle {...props} TextEditor={TextEditor}/>
+                )}/>
+            </Switch>
         </div> 
       </main>
 

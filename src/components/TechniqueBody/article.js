@@ -5,15 +5,20 @@ import EditorToJSX from '../EditorToJSX'
 
 import TableOfContents from '../TableOfContents'
 
-const useStyles = makeStyles({
-  root: {
-    width: '100%',
-  },
-});
+const useStyles = makeStyles(theme => ({
+    root: {
+        width: '100%',
+    },
+    content: {
+        padding: theme.spacing(3),
+        position: 'sticky',
+        top: '7em'
+    },
+}));
 
 const BASE_URL = process.env.REACT_APP_BACKEND_SERVER
 
-export default function Article({TextEditor}) {
+export default function TechniqueArticle({TextEditor}) {
   const classes = useStyles();
   
   const [title, setTitle] = useState(null)
@@ -339,13 +344,13 @@ export default function Article({TextEditor}) {
                     </div>
 
                 </div>
-            </div>
             <aside className={`grid__col-3 ${classes.content} sidebar`}>
                 <div className={classes.toolbar} />
                 <div className="dl-container">
                 <TableOfContents/>
                 </div>
             </aside>
+            </div>
         </div>
 
     </>

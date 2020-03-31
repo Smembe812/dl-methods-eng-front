@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios'
 import EditorToJSX from '../EditorToJSX'
+import {
+  NavLink,
+} from "react-router-dom";
 
 import RenderHeader from '../EditorToJSX/RenderHeader'
 import RenderParagraph from '../EditorToJSX/RenderParagraph'
@@ -170,6 +173,7 @@ export default function TechniqieBody({TextEditor}) {
 
     return techniques.map( ({title, description, how, id}) => {
       description = JSON.parse(description)
+      const hyphenetedTitle = title.toLowerCase().split(' ').join('-')
       
       if (how && description){
         return (
@@ -190,7 +194,9 @@ export default function TechniqieBody({TextEditor}) {
                         />
                   </div>
                   <div className="card__footer">
-                    <a className="link" href="#">explore more</a>
+                    <NavLink to={`/techniques/${hyphenetedTitle}`} className="link">
+                      explore more
+                    </NavLink>
                   </div>
               </div>
           </div>
