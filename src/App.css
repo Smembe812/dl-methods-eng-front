@@ -32,6 +32,7 @@
         border-left: solid;
         padding-left: 1em;
         font-weight: bold;
+        color: inherit;
       }
 
       .readable {

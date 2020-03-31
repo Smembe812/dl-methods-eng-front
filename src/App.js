@@ -17,14 +17,11 @@ import {
 } from "react-router-dom";
 
 import './App.css'
-import TechniqueArticle from './components/TechniqueBody/article';
+import Element from './components/Element';
+
 
 
 const routes = [
-  // {
-  //   path: "/techiniques",
-  //   component: TechniqueArticle
-  // },
   {
     path: "/techniques",
     component: TechniquesPage,
@@ -91,6 +88,9 @@ function App() {
             <SidebarMenu data={sidebarContent}/>
       </Drawer>
         <Switch>
+            <Route exact path="/">
+                <Home/>
+              </Route>
             {routes.map((route, i) => (
               <RouteWithSubRoutes key={i} {...route} />
             ))}
@@ -115,6 +115,22 @@ function RouteWithSubRoutes(route) {
       />
     </>
   );
+}
+
+function Home(){
+  const classes = useStyles();
+  return (
+    <div className="grid" style={{width: '100%'}}>
+      <main className={`grid__col-12 ${classes.content}`}>
+        <div className={classes.toolbar} />
+        <div className="dl-container">
+          <Element limit={9} name="Techniques" apiRoute="techniques"/>
+
+        </div>
+        </main>
+
+    </div>
+  )
 }
 
 export default App;

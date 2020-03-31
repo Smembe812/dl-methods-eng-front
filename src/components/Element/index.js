@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios'
 import EditorToJSX from '../EditorToJSX'
 import {
-  NavLink,
+  Link,
+  NavLink
 } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -14,10 +15,10 @@ const useStyles = makeStyles({
 
 const BASE_URL = process.env.REACT_APP_BACKEND_SERVER
 
-export default function TechniqieBody({limit = null}) {
+export default function Element({limit = null, name, apiRoute,}) {
   const classes = useStyles();
   
-  const [techniques, setTechniques] = useState([])
+  const [elements, setElements] = useState([])
 
   const [viewConfig, setViewConfig] = useState("grid")
 
@@ -30,27 +31,26 @@ export default function TechniqieBody({limit = null}) {
   
 
   async function loadData(){
-    const {data} =  await axios.get(`${BASE_URL}techniques`)
+    const {data} =  await axios.get(`${BASE_URL}${apiRoute}`)
 
-    const reducedTechniques = data.filter((item) => {
+    const reduceElements = data.filter((item) => {
       if (item.how && item.description){
         return item
       }
     })
 
-    setTechniques(reducedTechniques)
+    setElements(reduceElements)
   }
 
-  console.log(techniques)
 
-  const renderTechniques = (techniques) => {
+  const renderElements = (elements) => {
 
-    return techniques.map( ({title, description, how, id}, index) => {
+    return elements.map( ({title, description, how, id}, index) => {
       description = JSON.parse(description)
       const hyphenetedTitle = title.toLowerCase().split(' ').join('-')
       
 
-      if (how && description){
+      if (how && description && (index < cardLimit)){
         return (
           <div className={viewConfig === "grid" ? "item grid__col-3" : "item grid__col-12"} key={id}>
             <div className={viewConfig === "grid" ? "card card__grid" : "card card__list"}>
@@ -69,7 +69,7 @@ export default function TechniqieBody({limit = null}) {
                         />
                   </div>
                   <div className="card__footer">
-                    <NavLink to={`/techniques/${hyphenetedTitle}`} className="link" onClick={()=>localStorage.setItem("techniquesId", id)}>
+                    <NavLink to={`/${apiRoute}/${hyphenetedTitle}`} className="link" onClick={()=>localStorage.setItem(`${name.toLowerCase()}Id`, id)}>
                       explore more
                     </NavLink>
                   </div>
@@ -92,15 +92,11 @@ export default function TechniqieBody({limit = null}) {
             <div className="grid__col">
                 <div className="toolbar__title">
                     <span className="toolbar__list-item-text">
-                        Techniques 
-                        {/* > <a className="link" href="#">explore more</a> */}
+                        {name} > <Link className="link" to={`${apiRoute}`}>explore more</Link>
                     </span>
                 </div>
             </div>
             <div className="toolbar__list grid__col flex flex__justify-end">
-                <div className="toolbar__list-item">
-                    <i className="material-icons">tune</i>
-                </div>
                 <div 
                     className={viewConfig === "grid" ? "toolbar__list-item toolbar__list-item--active":  "toolbar__list-item"} 
                     onClick={() => setViewConfig("grid")}> 
@@ -117,7 +113,7 @@ export default function TechniqieBody({limit = null}) {
 
     <div className="grid" style={{margin: (viewConfig === "grid" ? "unset" : "0 13%")}}>
         <div className="grid__box grid__gap">
-            {renderTechniques(techniques)}
+            {renderElements(elements)}
         </div>
     </div>
      

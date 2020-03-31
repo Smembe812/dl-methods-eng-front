@@ -27,11 +27,12 @@ export default function TechniqueArticle({TextEditor}) {
   const [steps, setSteps] = useState({})
   const [isRead, setIsRead] = useState(true)
   const [isEditTitle, setIsEditTitle] = useState(false)
+  const [techniqueID, setTechniqueID] = useState(() => localStorage.getItem("techniquesId"))
 
   
   useEffect(() => {
     loadData()
-  },[])
+  },[techniqueID])
   
   const data = {
       "time" : 1584386788218,
@@ -148,14 +149,14 @@ export default function TechniqueArticle({TextEditor}) {
   }
   
   async function loadData(){
-    const {data} =  await axios.get(`${BASE_URL}techniques`)
-    const latestTech = data.pop()
-
+    const {data} =  await axios.get(`${BASE_URL}techniques/${techniqueID}`)
+    // const latestTech = data.pop()
+    console.log(data)
     const values = {
-      title: latestTech.title,
-      description: JSON.parse(latestTech.description),
-      motivation: JSON.parse(latestTech.aim),
-      steps: JSON.parse(latestTech.how)
+      title: data.title,
+      description: JSON.parse(data.description),
+      motivation: JSON.parse(data.aim),
+      steps: JSON.parse(data.how)
     }
     setTitle(values.title)
     setDescription(values.description)
@@ -166,9 +167,6 @@ export default function TechniqueArticle({TextEditor}) {
   console.log({title, description, motivation, steps})
   
   const handleSave = () => {
-    console.log('description', description)
-    console.log('motivation', motivation)
-    console.log('steps', steps)
     
     const payload = {
       title, 
@@ -177,7 +175,7 @@ export default function TechniqueArticle({TextEditor}) {
       how: JSON.stringify(steps)
     }
     
-    axios.post(`${BASE_URL}techniques`, payload)
+    axios.put(`${BASE_URL}techniques/${techniqueID}`, payload)
     .then( (data) => console.log(data))
     
   }
@@ -222,7 +220,7 @@ export default function TechniqueArticle({TextEditor}) {
                                 How
                             </h5>
                             <EditorToJSX
-                                    data={steps} 
+                                    data={steps || {}} 
                                     options={{
                                     headerClassName:"typography__heading-six",
                                     paragraphClassName: "typography__paragraph",
@@ -244,7 +242,7 @@ export default function TechniqueArticle({TextEditor}) {
                                 onChange={handleOnTitleChange}
                                 value={title}
                                 type="text" 
-                                className="typography__heading-five input__title" 
+                                className="typography__heading-six input__title" 
                                 placeholder="Edit Title" 
                                 title="Click here to edit title"/>
                             
