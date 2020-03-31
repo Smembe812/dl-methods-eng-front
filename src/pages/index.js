@@ -45,36 +45,6 @@ const TechniquesPage = () => {
   ]
 
   return (
-  
-  <div className={classes.root}>
-    <CssBaseline/>
-    <Header args={{classArgs: classes}}/>
-
-    <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.toolbar} />
-          <SidebarMenu data={sidebarContent}/>
-        <List>
-          {/* {['Processes', 'Process Elements', 'Techniques', 'Experieces'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))} */}
-        </List>
-        {/* <Divider /> */}
-        <List>
-          {/* {['Knowledge Resources', 'Examples', 'Templates'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))} */}
-        </List>
-    </Drawer>
     <div className="grid" style={{width: '100%'}}>
       <main className={`grid__col-12 ${classes.content}`}>
         <div className={classes.toolbar} />
@@ -84,27 +54,6 @@ const TechniquesPage = () => {
       </main>
 
     </div>
-
-    <footer>
-    </footer>
-
-    <style jsx>{`
-    `}</style>
-
-    <style jsx global>{`
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-          font-weight: 400;
-          font-size: 1em;
-      }
-      
-    `}</style>
-  
-  </div>
 )
 }
 

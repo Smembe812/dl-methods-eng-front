@@ -4,9 +4,9 @@
         padding: 0;
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
           font-weight: 400;
-          font-size: 1.2em;
+          font-size: 1em !important;
       }
 
       .sidebar {
@@ -57,7 +57,7 @@
         scroll-padding-top: 8em;
       }
       .dl-container{
-        padding: 3em 1em !important;
+        padding: 1em 1em !important;
       }
 
       * {
