@@ -69,7 +69,7 @@ export default function Element({limit = null, name, apiRoute,}) {
                         />
                   </div>
                   <div className="card__footer">
-                    <NavLink to={`/${apiRoute}/${hyphenetedTitle}`} className="link" onClick={()=>localStorage.setItem(`${name.toLowerCase()}Id`, id)}>
+                    <NavLink to={`/${apiRoute}/writing/${hyphenetedTitle}`} className="link" onClick={()=>localStorage.setItem(`${name.toLowerCase()}Id`, id)}>
                       explore more
                     </NavLink>
                   </div>

@@ -35,6 +35,27 @@
         color: inherit;
       }
 
+      .logo-link {
+        text-decoration: none;
+        border-bottom: unset !important;
+      }
+
+      .logo-link:hover {
+        text-decoration: none;
+        border-bottom: unset !important;
+      }
+
+      .logo-button{
+        background: #DC143C !important;
+        color: #ffffff !important;
+        font-weight: 600
+      }
+
+      .logo-button:hover{
+        color: #DC143C !important;
+        background: #ffffff !important;
+      }
+
       .readable {
         width: 65% !important;
         margin: auto;

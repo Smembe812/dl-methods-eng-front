@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+import {
+  NavLink,
+} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     AppBar:{
@@ -16,8 +19,8 @@ const useStyles = makeStyles(theme => ({
     },
     toolbar: {
       background: 'white',
-      color: "black"
-    }
+      color: "black",
+    },
   }));
 
 function Header ({args: {classArgs}}){
@@ -26,10 +29,12 @@ function Header ({args: {classArgs}}){
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.AppBar}>
         <Toolbar className={classes.toolbar}>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            DL
-          </IconButton>
-            Design Methodology
+          <NavLink to="/" className="logo-link">
+            <IconButton edge="start" className={`${classes.menuButton} logo-button`} color="inherit" aria-label="menu">
+              DL
+            </IconButton>
+          </NavLink>
+            Design Methodologies & Guidelines
         </Toolbar>
       </AppBar>
     </div>
