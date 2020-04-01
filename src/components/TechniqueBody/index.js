@@ -4,18 +4,35 @@ import axios from 'axios'
 import EditorToJSX from '../EditorToJSX'
 import {
   NavLink,
+  useHistory
 } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
     width: '100%',
   },
+  toolbar:{
+    position: "sticky",
+    top: "4em",
+    zIndex: 1000,
+    background: "#ffffff",
+    boxShadow: "0px 2px 3px 0px #a3a1a1"
+  },
+  addButton: {
+    position: "fixed",
+    display: 'flex',
+    width: '4em',
+    height: '4em',
+    justifyContent: 'center',
+    alignContent: 'center'
+  }
 });
 
 const BASE_URL = process.env.REACT_APP_BACKEND_SERVER
 
 export default function TechniqieBody({limit = null}) {
   const classes = useStyles();
+  const history = useHistory();
   
   const [techniques, setTechniques] = useState([])
 
@@ -41,7 +58,10 @@ export default function TechniqieBody({limit = null}) {
     setTechniques(reducedTechniques)
   }
 
-  console.log(techniques)
+  const handleAddNew = (e) => {
+    e.preventDefault()
+    history.push("/techniques/create-new");
+  }
 
   const renderTechniques = (techniques) => {
 
@@ -69,7 +89,7 @@ export default function TechniqieBody({limit = null}) {
                         />
                   </div>
                   <div className="card__footer">
-                    <NavLink to={`/techniques/${hyphenetedTitle}`} className="link" onClick={()=>localStorage.setItem("techniquesId", id)}>
+                    <NavLink to={`/techniques/writing/${hyphenetedTitle}`} className="link" onClick={()=>localStorage.setItem("techniquesId", id)}>
                       explore more
                     </NavLink>
                   </div>
@@ -87,7 +107,7 @@ export default function TechniqieBody({limit = null}) {
 
   return (
     <>
-      <div className="grid toolbar toolbar__box-shadow">
+      <div className={`grid toolbar toolbar__box-shadow ${classes.toolbar}`} >
         <div className="grid__box--uniform">
             <div className="grid__col">
                 <div className="toolbar__title">
@@ -120,7 +140,12 @@ export default function TechniqieBody({limit = null}) {
             {renderTechniques(techniques)}
         </div>
     </div>
-     
+    <button 
+      className={`dl-btn dl-btn__dark dl-btn__round ${classes.addButton}`}
+      title="Create a new technique"
+      onClick={handleAddNew}>
+      <span className="material-icons">add</span>
+    </button>
     </>
   );
 }

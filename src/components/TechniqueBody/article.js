@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 const BASE_URL = process.env.REACT_APP_BACKEND_SERVER
 
-export default function TechniqueArticle({TextEditor}) {
+export default function TechniqueArticle({TextEditor, isNew=false}) {
   const classes = useStyles();
   
   const [title, setTitle] = useState(null)
@@ -31,7 +31,11 @@ export default function TechniqueArticle({TextEditor}) {
 
   
   useEffect(() => {
-    loadData()
+    if(isNew){
+        setIsRead(!isNew) 
+    }else{
+        loadData()
+    }
   },[techniqueID])
   
   const data = {
@@ -177,6 +181,25 @@ export default function TechniqueArticle({TextEditor}) {
     
     axios.put(`${BASE_URL}techniques/${techniqueID}`, payload)
     .then( (data) => console.log(data))
+    
+  }
+
+  console.log({title, description, motivation, steps})
+  
+  const handleCreateNew = () => {
+    
+    const payload = {
+      title, 
+      aim: JSON.stringify(motivation), 
+      description: JSON.stringify(description),
+      how: JSON.stringify(steps)
+    }
+    
+    axios.post(`${BASE_URL}techniques`, payload)
+    .then( (data) => {
+        setIsRead(!isRead)
+        console.log(data)
+    })
     
   }
   
@@ -335,7 +358,7 @@ export default function TechniqueArticle({TextEditor}) {
 
                         <br/>
                         <br/>
-                        <button className="dl-btn dl-btn__dark" onClick={handleSave}>Save</button>
+                        <button className="dl-btn dl-btn__dark" onClick={!isRead ? handleCreateNew: handleSave}>Save</button>
                         <button className="dl-btn dl-btn__secondary" onClick={loadData}>load</button>
                         </>
                     }

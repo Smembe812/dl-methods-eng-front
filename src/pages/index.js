@@ -54,9 +54,16 @@ const TechniquesPage = ({routes}) => {
                 <TechniqueBody/>
               </Route>
               <Route
-                path="/techniques/:slug"
+                path="/techniques/writing/:slug"
                 render={props => (
                   <TechniqueArticle {...props} TextEditor={TextEditor}/>
+                )}/>
+
+              <Route
+                path="/techniques/create-new"
+                render={props => (
+                  <TechniqueArticle {...props} TextEditor={TextEditor} 
+                    isNew={true}/>
                 )}/>
             </Switch>
         </div> 
