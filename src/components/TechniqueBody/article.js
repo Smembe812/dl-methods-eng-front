@@ -180,7 +180,10 @@ export default function TechniqueArticle({TextEditor, isNew=false}) {
     }
     
     axios.put(`${BASE_URL}techniques/${techniqueID}`, payload)
-    .then( (data) => console.log(data))
+    .then( (data) => {
+        setIsRead(true)
+        console.log(data)
+    })
     
   }
 
@@ -197,7 +200,7 @@ export default function TechniqueArticle({TextEditor, isNew=false}) {
     
     axios.post(`${BASE_URL}techniques`, payload)
     .then( (data) => {
-        setIsRead(!isRead)
+        setIsRead(true)
         console.log(data)
     })
     
