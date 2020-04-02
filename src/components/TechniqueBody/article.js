@@ -358,7 +358,7 @@ export default function TechniqueArticle({TextEditor, isNew=false}) {
 
                         <br/>
                         <br/>
-                        <button className="dl-btn dl-btn__dark" onClick={!isRead ? handleCreateNew: handleSave}>Save</button>
+                        <button className="dl-btn dl-btn__dark" onClick={isNew ? handleCreateNew : handleSave}>Save</button>
                         {/* <button className="dl-btn dl-btn__secondary" onClick={loadData}>load</button> */}
                         </>
                     }
