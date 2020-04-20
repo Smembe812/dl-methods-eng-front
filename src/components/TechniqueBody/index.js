@@ -100,7 +100,9 @@ export default function TechniqieBody({limit = null}) {
 
       return <></>
 
-    })
+    }
+
+    )
   }
 
   return (

@@ -16,6 +16,8 @@ import InlineCode from  "@editorjs/inline-code"
 import SimpleImage from  "@editorjs/simple-image"
 import EditorJS from "@editorjs/editorjs"
 
+const BASE_URL = process.env.REACT_APP_BACKEND_SERVER
+
 const tools = {
   embed: Embed,
   table: Table,
@@ -28,25 +30,10 @@ const tools = {
     class: Image,
     config: {
       endpoints: {
-        byFile: 'http://localhost:3000/api/files?editor=true', // Your backend file uploader endpoint
+        byFile: `${BASE_URL}files?editor=true`, // Your backend file uploader endpoint
         // byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
       },
       field: "file"
-      // uploader: {
-      //   uploadByFile(file, uploadFile){
-      //     // your own uploading logic here
-      //     return uploadFile(file).then(({dataValues:{image:{secure_url}}}) => {
-
-      //       return {
-      //         success: 1,
-      //         file: {
-      //           url: secure_url,
-      //           // any other image data you want to store, such as width, height, color, extension, etc
-      //         }
-      //       };
-      //     });
-      //   },
-      // }
     }
   },
   raw: Raw,
