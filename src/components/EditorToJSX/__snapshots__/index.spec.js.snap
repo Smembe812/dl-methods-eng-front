@@ -332,3 +332,36 @@ Array [
   </p>,
 ]
 `;
+
+exports[`Convert EditorJS data to JSX should render img should render 1`] = `
+Array [
+  <div
+    className="image__container"
+  >
+    <img
+      alt="Image title"
+      className="image"
+      src="https://res.cloudinary.com/ds7sn5beu/image/upload/v1587457445/lzuqxmvxgcclqjjmdel9.png"
+    />
+  </div>,
+  <div
+    className="image__caption"
+  >
+    <p>
+      This is the test caption
+    </p>
+  </div>,
+]
+`;
+
+exports[`Convert EditorJS data to JSX should render img should render without caption 1`] = `
+<div
+  className="image__container"
+>
+  <img
+    alt="Image title"
+    className="image"
+    src="https://res.cloudinary.com/ds7sn5beu/image/upload/v1587457445/lzuqxmvxgcclqjjmdel9.png"
+  />
+</div>
+`;

@@ -4,6 +4,7 @@ import axios from 'axios'
 import EditorToJSX from '../EditorToJSX'
 
 import TableOfContents from '../TableOfContents'
+import RenderImage from '../EditorToJSX/RenderImage';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -222,6 +223,9 @@ export default function TechniqueArticle({TextEditor, isNew=false}) {
                             {title}
                             </h4>
                             <section id="description">
+                                <RenderImage 
+                                    resource="https://res.cloudinary.com/ds7sn5beu/image/upload/v1587457445/lzuqxmvxgcclqjjmdel9.png"
+                                    caption="This is the passed caption"/>
                             <EditorToJSX
                                 data={description} 
                                 options={{

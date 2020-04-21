@@ -12,6 +12,7 @@ import {
 } from './index'
 
 import EditorToJSX from './index'
+import RenderImage from './RenderImage';
 
 describe('Convert EditorJS data to JSX', () => {
     let container = null;
@@ -379,7 +380,35 @@ describe('Convert EditorJS data to JSX', () => {
         done()
     })
     it.todo("should render")
-    it.todo("should render img")
+
+    describe("should render img", () => {
+        it("should render", (done) => {
+            const resource = "https://res.cloudinary.com/ds7sn5beu/image/upload/v1587457445/lzuqxmvxgcclqjjmdel9.png";
+            const caption = "This is the test caption"
+
+            const tree = renderer
+            .create(
+                <RenderImage resource={resource} caption={caption} />
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+            done()
+        })
+
+        it("should render without caption", (done) => {
+            const resource = "https://res.cloudinary.com/ds7sn5beu/image/upload/v1587457445/lzuqxmvxgcclqjjmdel9.png";
+            const caption = "This is the test caption"
+
+            const tree = renderer
+            .create(
+                <RenderImage resource={resource}/>
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+            done()
+        })
+    })
+    
     describe("Render table", () => {
         const tableBlock = {
             type: "table",
