@@ -1,14 +1,23 @@
 import React from 'react'
 
-const RenderImage = ({resource, caption}) => {
-    if (!resource)
-        return null
+const RenderImage = ({block}) => {
 
-        
+    if (!block)
+        return null
+    
+    const { type, data : { file : { url }, caption, ...rest} } = block
+
+    if(!type){
+        return null
+    }
+    
+    if (!url)
+        return null
+  
     return(
         <>
             <div className="image__container">
-                <img src={resource} className="image" alt="Image title"/>
+                <img src={url} className="image" alt="Image title"/>
             </div>
             {
                 caption ?

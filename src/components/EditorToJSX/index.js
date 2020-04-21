@@ -6,6 +6,7 @@ import RenderListItem from './RenderListItem'
 import RenderHeader from './RenderHeader'
 import RenderParagraph from './RenderParagraph'
 import RenderTable from './RenderTable'
+import RenderImage from './RenderImage'
 
 
 function EditorToJSX({data, options={}, children}){
@@ -41,6 +42,10 @@ function EditorToJSX({data, options={}, children}){
             if (type === "table"){
                 return <RenderTable block={block}/>
             }
+
+            if (type === "image"){
+                return <RenderImage block={block}/>
+            }
     
             return null
         })
@@ -58,5 +63,6 @@ export {
     RenderList, 
     RenderListItem, 
     RenderParagraph,
-    RenderTable
+    RenderTable,
+    RenderImage
 }

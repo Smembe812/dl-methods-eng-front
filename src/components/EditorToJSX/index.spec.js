@@ -386,9 +386,19 @@ describe('Convert EditorJS data to JSX', () => {
             const resource = "https://res.cloudinary.com/ds7sn5beu/image/upload/v1587457445/lzuqxmvxgcclqjjmdel9.png";
             const caption = "This is the test caption"
 
+            const block = {
+                type: "image",
+                data: {
+                    file: {
+                        url: resource,
+                    },
+                    caption
+                }
+            }
+
             const tree = renderer
             .create(
-                <RenderImage resource={resource} caption={caption} />
+                <RenderImage block={block}/>
             )
             .toJSON();
         expect(tree).toMatchSnapshot();
@@ -398,10 +408,21 @@ describe('Convert EditorJS data to JSX', () => {
         it("should render without caption", (done) => {
             const resource = "https://res.cloudinary.com/ds7sn5beu/image/upload/v1587457445/lzuqxmvxgcclqjjmdel9.png";
             const caption = "This is the test caption"
+            
+            const block = {
+                type: "image",
+                data: {
+                    file: {
+                        url: resource,
+                    },
+                    caption: null
+                }
+            }
+
 
             const tree = renderer
             .create(
-                <RenderImage resource={resource}/>
+                <RenderImage block={block}/>
             )
             .toJSON();
         expect(tree).toMatchSnapshot();
